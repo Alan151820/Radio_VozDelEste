@@ -12,25 +12,17 @@ namespace RadioVozDelEste.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Programas
+    public partial class Dias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Programas()
+        public Dias()
         {
-            this.Comentarios = new HashSet<Comentarios>();
-            this.Conductores = new HashSet<Conductores>();
             this.Horarios = new HashSet<Horarios>();
         }
     
-        public int ProgramaID { get; set; }
+        public int DiaID { get; set; }
         public string Nombre { get; set; }
-        public string Imagen { get; set; }
-        public string Descripcion { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comentarios> Comentarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Conductores> Conductores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horarios> Horarios { get; set; }
     }
