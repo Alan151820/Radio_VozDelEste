@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="22c198b6f69e499ebceee0d30bba0730" Name="Diagram1">
+      <Diagram DiagramId="22c198b6f69e499ebceee0d30bba0730" Name="Diagram1" ZoomLevel="77">
         <EntityTypeShape EntityType="Radio_VozDelEsteModel.Clientes" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Radio_VozDelEsteModel.Comentarios" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Radio_VozDelEsteModel.Conductores" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
@@ -26,6 +26,10 @@
         <AssociationConnector Association="Radio_VozDelEsteModel.FK__Usuarios__RolID__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="Radio_VozDelEsteModel.Programas_Conductores" ManuallyRouted="false" />
         <AssociationConnector Association="Radio_VozDelEsteModel.Usuarios_Permisos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Radio_VozDelEsteModel.Dias" Width="1.5" PointX="8.25" PointY="11.5" />
+        <EntityTypeShape EntityType="Radio_VozDelEsteModel.Horarios" Width="1.5" PointX="10.5" PointY="1.125" />
+        <AssociationConnector Association="Radio_VozDelEsteModel.FK__Horarios__DiaID__72C60C4A" />
+        <AssociationConnector Association="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

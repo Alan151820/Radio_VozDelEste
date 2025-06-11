@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<body>
+<div class="Registro">
+
+    <label class="DatosRegistro">
+        Cedula de Identidad
+        <input type="text" placeholder="Ingrese su cedula" />
+    </label>
+
+    <label class="DatosRegistro">
+        Nombre
+        <input type="text" placeholder="Ingrese su nombre" />
+    </label>
+
+    <label class="DatosRegistro">
+        Apellido
+        <input type="text" placeholder="Ingrese su apellido" />
+    </label>
+
+    <label class="DatosRegistro">
+        Correo electrónico
+        <input type="email" placeholder="Ingrese su correo" />
+    </label>
+
+    <label class="DatosRegistro">
+        Contraseña
+        <input type="password" placeholder="Cree una contraseña" />
+    </label>
+    <div class="OptionRegister">
+
+        <label class="OptionLogin">¿Ya tienes cuenta?</label>
+        <a href="/Login/Login">Iniciar Sesion</a>
+    </div>
+
+    <button type="submit">Registrarse</button>
+</div>
+
+</body>
+</html>
+
+<style>
+    body {
+        background: linear-gradient(to right, #dfe9f3, #ffffff);
+    }
+    .Registro {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 300px;
+        margin: auto;
+        margin-top: 10vh;
+        font-family: sans-serif;
+        padding: 40px;
+        border: 4px solid transparent;
+        border-radius: 12px;
+        background-image: linear-gradient(white, white), linear-gradient(to right, #2c9fb4, #0e7a6d);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+
+    .DatosRegistro {
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .Registro input {
+        margin-top: 5px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgba(200, 200, 200, 0.4);
+        padding: 10px;
+        font-size: 14px;
+    }
+
+        .Registro input:focus {
+            outline: none;
+            background-color: rgba(200, 200, 200, 0.6);
+        }
+
+    .Registro button {
+        margin-top: 10px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .Registro button:hover {
+            background-color: #333;
+        }
+</style>

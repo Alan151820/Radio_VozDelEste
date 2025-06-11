@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Radio_VozDelEsteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Radio_VozDelEsteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="CI" />
@@ -42,6 +42,23 @@
           <Property Name="Fecha" Type="date" Nullable="false" />
           <Property Name="MonedaID" Type="int" Nullable="false" />
           <Property Name="Valor" Type="decimal" Precision="10" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dias">
+          <Key>
+            <PropertyRef Name="DiaID" />
+          </Key>
+          <Property Name="DiaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="HorarioID" />
+          </Key>
+          <Property Name="HorarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramaID" Type="int" Nullable="false" />
+          <Property Name="DiaID" Type="int" Nullable="false" />
+          <Property Name="HoraInicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="HoraFin" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="Noticias">
           <Key>
@@ -87,7 +104,6 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="1500" Nullable="false" />
-          <Property Name="Horario" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Programas_Conductores">
           <Key>
@@ -188,6 +204,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Horarios__DiaID__72C60C4A">
+          <End Role="Dias" Type="Self.Dias" Multiplicity="1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias">
+              <PropertyRef Name="DiaID" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="DiaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__HoraFi__71D1E811">
+          <End Role="Programas" Type="Self.Programas" Multiplicity="1" />
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programas">
+              <PropertyRef Name="ProgramaID" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="ProgramaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Patrocina__PlanI__48CFD27E">
           <End Role="Planes" Type="Self.Planes" Multiplicity="1" />
           <End Role="Patrocinadores" Type="Self.Patrocinadores" Multiplicity="*" />
@@ -265,6 +305,8 @@
           <EntitySet Name="Comentarios" EntityType="Self.Comentarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conductores" EntityType="Self.Conductores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cotizaciones" EntityType="Self.Cotizaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dias" EntityType="Self.Dias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Noticias" EntityType="Self.Noticias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patrocinadores" EntityType="Self.Patrocinadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
@@ -292,6 +334,14 @@
             <End Role="TipoMonedas" EntitySet="TipoMonedas" />
             <End Role="Cotizaciones" EntitySet="Cotizaciones" />
           </AssociationSet>
+          <AssociationSet Name="FK__Horarios__DiaID__72C60C4A" Association="Self.FK__Horarios__DiaID__72C60C4A">
+            <End Role="Dias" EntitySet="Dias" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__HoraFi__71D1E811" Association="Self.FK__Horarios__HoraFi__71D1E811">
+            <End Role="Programas" EntitySet="Programas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
           <AssociationSet Name="FK__Patrocina__PlanI__48CFD27E" Association="Self.FK__Patrocina__PlanI__48CFD27E">
             <End Role="Planes" EntitySet="Planes" />
             <End Role="Patrocinadores" EntitySet="Patrocinadores" />
@@ -317,8 +367,7 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Radio_VozDelEsteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -413,9 +462,9 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Horario" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__Progr__4E88ABD4" FromRole="Programas" ToRole="Comentarios" />
           <NavigationProperty Name="Conductores" Relationship="Self.Programas_Conductores" FromRole="Programas" ToRole="Conductores" />
+          <NavigationProperty Name="Horarios" Relationship="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" FromRole="Programas" ToRole="Horarios" />
         </EntityType>
         <EntityType Name="RegistrosClimaticos">
           <Key>
@@ -583,7 +632,61 @@
             <End Role="Permisos" EntitySet="Permisos" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
+          <EntitySet Name="Dias" EntityType="Radio_VozDelEsteModel.Dias" />
+          <EntitySet Name="Horarios" EntityType="Radio_VozDelEsteModel.Horarios" />
+          <AssociationSet Name="FK__Horarios__DiaID__72C60C4A" Association="Radio_VozDelEsteModel.FK__Horarios__DiaID__72C60C4A">
+            <End Role="Dias" EntitySet="Dias" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horarios__HoraFi__71D1E811" Association="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811">
+            <End Role="Programas" EntitySet="Programas" />
+            <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Dias">
+          <Key>
+            <PropertyRef Name="DiaID" />
+          </Key>
+          <Property Name="DiaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Horarios" Relationship="Radio_VozDelEsteModel.FK__Horarios__DiaID__72C60C4A" FromRole="Dias" ToRole="Horarios" />
+        </EntityType>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="HorarioID" />
+          </Key>
+          <Property Name="HorarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramaID" Type="Int32" Nullable="false" />
+          <Property Name="DiaID" Type="Int32" Nullable="false" />
+          <Property Name="HoraInicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="HoraFin" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Dias" Relationship="Radio_VozDelEsteModel.FK__Horarios__DiaID__72C60C4A" FromRole="Horarios" ToRole="Dias" />
+          <NavigationProperty Name="Programas" Relationship="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" FromRole="Horarios" ToRole="Programas" />
+        </EntityType>
+        <Association Name="FK__Horarios__DiaID__72C60C4A">
+          <End Type="Radio_VozDelEsteModel.Dias" Role="Dias" Multiplicity="1" />
+          <End Type="Radio_VozDelEsteModel.Horarios" Role="Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dias">
+              <PropertyRef Name="DiaID" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="DiaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horarios__HoraFi__71D1E811">
+          <End Type="Radio_VozDelEsteModel.Programas" Role="Programas" Multiplicity="1" />
+          <End Type="Radio_VozDelEsteModel.Horarios" Role="Horarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programas">
+              <PropertyRef Name="ProgramaID" />
+            </Principal>
+            <Dependent Role="Horarios">
+              <PropertyRef Name="ProgramaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -679,7 +782,6 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Horario" ColumnName="Horario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -738,6 +840,25 @@
               <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Dias">
+            <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Dias">
+              <MappingFragment StoreEntitySet="Dias">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DiaID" ColumnName="DiaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horarios">
+            <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Horarios">
+              <MappingFragment StoreEntitySet="Horarios">
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="DiaID" ColumnName="DiaID" />
+                <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
+                <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

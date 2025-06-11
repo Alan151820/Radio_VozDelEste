@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Radio_VozDelEsteModelStoreContainer" CdmEntityContainer="Radio_VozDelEsteEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comentarios">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Comentarios">
+        <MappingFragment StoreEntitySet="Comentarios">
+          <ScalarProperty Name="ComentarioID" ColumnName="ComentarioID" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conductores">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Conductores">
+        <MappingFragment StoreEntitySet="Conductores">
+          <ScalarProperty Name="ConductorID" ColumnName="ConductorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cotizaciones">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Cotizaciones">
+        <MappingFragment StoreEntitySet="Cotizaciones">
+          <ScalarProperty Name="CotizacionID" ColumnName="CotizacionID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Noticias">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Noticias">
+        <MappingFragment StoreEntitySet="Noticias">
+          <ScalarProperty Name="NoticiaID" ColumnName="NoticiaID" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patrocinadores">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Patrocinadores">
+        <MappingFragment StoreEntitySet="Patrocinadores">
+          <ScalarProperty Name="PatrocinadorID" ColumnName="PatrocinadorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Permisos">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="PermisoID" ColumnName="PermisoID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planes">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Planes">
+        <MappingFragment StoreEntitySet="Planes">
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="VecesPorDia" ColumnName="VecesPorDia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programas">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Programas">
+        <MappingFragment StoreEntitySet="Programas">
+          <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistrosClimaticos">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.RegistrosClimaticos">
+        <MappingFragment StoreEntitySet="RegistrosClimaticos">
+          <ScalarProperty Name="ClimaID" ColumnName="ClimaID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RolID" ColumnName="RolID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMonedas">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.TipoMonedas">
+        <MappingFragment StoreEntitySet="TipoMonedas">
+          <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="RolID" ColumnName="RolID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Programas_Conductores" TypeName="Radio_VozDelEsteModel.Programas_Conductores" StoreEntitySet="Programas_Conductores">
+      <EndProperty Name="Conductores">
+        <ScalarProperty Name="ConductorID" ColumnName="ConductorID" />
+      </EndProperty>
+      <EndProperty Name="Programas">
+        <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Usuarios_Permisos" TypeName="Radio_VozDelEsteModel.Usuarios_Permisos" StoreEntitySet="Usuarios_Permisos">
+      <EndProperty Name="Permisos">
+        <ScalarProperty Name="PermisoID" ColumnName="PermisoID" />
+      </EndProperty>
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Dias">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Dias">
+        <MappingFragment StoreEntitySet="Dias">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="DiaID" ColumnName="DiaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horarios">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Horarios">
+        <MappingFragment StoreEntitySet="Horarios">
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="DiaID" ColumnName="DiaID" />
+          <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
+          <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
