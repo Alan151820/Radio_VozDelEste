@@ -1,0 +1,114 @@
+﻿@model RadioVozDelEste.Models.Horarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="containerDetails">
+
+    <div class="containerImg">
+        <img class="ImagenDeRadio" src="@Model.Programas.Imagen" />
+    </div>
+    <div class="containerInfo">
+
+        <h2 class="hNombre">@Model.Programas.Nombre.ToUpper()</h2>
+
+        <section class="DescripcionInformativa">
+            <span>
+                @Model.Programas.Descripcion
+
+            </span>
+        </section>
+
+        <hr />
+        <div class="bloque-programacion">
+            <span class="titulo-programacion">PROGRAMACIÓN</span>
+
+            <p class="horario-actual">
+                @Model.Dias.Nombre: @Model.HoraInicio - @Model.HoraFin
+            </p>
+
+            <ul class="lista-horarios">
+                @foreach (var h in Model.Programas.Horarios)
+                {
+                    if (h.HorarioID != Model.HorarioID)
+                    {
+                        <li>@h.Dias.Nombre: @h.HoraInicio - @h.HoraFin</li>
+                    }
+                }
+            </ul>
+        </div>
+
+
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
+
+
+
+<style>
+    .hNombre{
+        color:#ffd800
+    }
+    .containerDetails {
+        display: flex;
+        margin-top: 50px;
+    }
+
+    .ImagenDeRadio {
+        width: 400px;
+        height: 400px;
+        border-radius:50%;
+    }
+
+    .containerInfo {
+        padding-left: 50px;
+    }
+
+    .containerImg {
+    }
+
+
+
+    .bloque-programacion {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-left: 5px solid #3498db;
+        border-radius: 6px;
+    }
+
+    .titulo-programacion {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffd800;
+      
+    }
+
+    .lista-horarios {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+        .lista-horarios li {
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            background-color: #eaf3fc;
+            border-radius: 4px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+
+
+
+
+
+
+
+
+</style>

@@ -1,0 +1,163 @@
+﻿@model IEnumerable<IGrouping<string, RadioVozDelEste.Models.Horarios>>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="ImagenPrincipal">
+
+    <img src="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo400/9853646/9853646-1606986378050-d04a566dc65e3.jpg" class="ImagenUsuario" />
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var grupo in Model)
+{
+    <h2 class="nombreDia">@grupo.Key.ToUpper() </h2>
+    <div class="CadaTabla">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="columnaHora">INCIO</th>
+                    <th class="columnaPrograma">PROGRAMA</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var horario in grupo)
+            {
+
+                <tr>
+                    <td class="HoraPrograma">@horario.HoraInicio </td>
+
+                    <td class="InfoPrograma">
+                        <span class="NombrePrograma"> @Html.ActionLink(horario.Programas.Nombre.ToUpper(), "Details", new { id = horario.HorarioID })</span>
+
+                        <div class="Conductores">
+
+                        <span class="spanConductores">Conductores :</span>
+
+                        @foreach (var conductor in horario.Programas.Conductores)
+                        {
+                            <span class="Chip">@conductor.Nombre </span> 
+                        }
+                        </div>
+
+                    </td>
+                    <td class="edicion">
+                        @Html.ActionLink("Edit", "Edit", new { id = horario.HorarioID })
+                        @Html.ActionLink("Delete", "Delete", new { id = horario.HorarioID })
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+    <style>
+
+        .container {
+            margin-top: 0;
+            padding: 0;
+        }
+
+        .ImagenPrincipal {
+            background-color: black;
+            height: 100%;
+        }
+
+            .ImagenPrincipal img {
+                width: 100px;
+                height: 100PX;
+                margin-left: 500px;
+            }
+
+        th, td {
+            border-bottom: none;
+        }
+
+
+        .CadaTabla {
+            background-color: #f5f5f5;
+            width: 100%;
+        }
+
+        .Conductores {
+            display: block;
+            padding-top: 5px;
+        }
+
+        .NombrePrograma {
+            font-weight: bold;
+            color: black;
+            border:none;
+        }
+            .NombrePrograma a {
+                font-weight: 700;
+                color: #071253;
+                text-decoration: none;
+            }
+
+                .NombrePrograma a:hover {
+                    text-decoration: underline;
+                    color:#bbd50c
+                }
+
+        .nombreDia {
+            color: #bbd50c;
+            font-style: revert;
+            font-weight: bold;
+            margin-left: 89px;
+            margin-bottom: 0;
+            margin-top: 30px;
+            border-left: 1px #ccc solid;
+            padding-left: 10px;
+        }
+
+        .columnaHora {
+            color: #4346ce;
+            border-right: 1px #ccc solid;
+        }
+
+        .columnaPrograma {
+            color: #4346ce;
+        }
+
+        .HoraPrograma {
+            font-weight: 500;
+            border-right: 1px solid #ccc;
+            width: 90px;
+            border-top: 1px solid #ccc
+        }
+
+        .InfoPrograma, .edicion {
+            border-top: 1px solid #ccc
+        }
+
+        .table th {
+            padding: 10px;
+            background-color: #e0e0e0;
+        }
+        .spanConductores{
+            font-weight:100;
+        }
+
+
+        .Chip {
+            display: inline-block;
+            background-color: #e0f0ff;
+            color: #005ea2;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+
+    </style>
+
+}

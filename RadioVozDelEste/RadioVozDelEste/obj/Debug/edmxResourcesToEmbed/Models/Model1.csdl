@@ -91,7 +91,6 @@
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Horario" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__Progr__4E88ABD4" FromRole="Programas" ToRole="Comentarios" />
     <NavigationProperty Name="Conductores" Relationship="Self.Programas_Conductores" FromRole="Programas" ToRole="Conductores" />
     <NavigationProperty Name="Horarios" Relationship="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" FromRole="Programas" ToRole="Horarios" />

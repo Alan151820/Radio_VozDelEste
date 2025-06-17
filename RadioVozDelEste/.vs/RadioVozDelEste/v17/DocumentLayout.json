@@ -3,7 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\programacion iii\\repositorioradio\\radiovozdeleste\\radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\programacion iii\\repositorioradio\\radiovozdeleste\\radiovozdeleste\\views\\horarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\controllers\\horarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\horarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
@@ -13,14 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\views\\login\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\login\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\radiovozdeleste\\dataaccess\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,11 +54,11 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 210,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +70,68 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-16T15:46:57.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAwJIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-13T00:50:56.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "HorariosController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HorariosController.cs",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\HorariosController.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HorariosController.cs",
+              "RelativeToolTip": "RadioVozDelEste\\Controllers\\HorariosController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAUwB0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T00:50:45.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-12T23:00:11.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "RadioVozDelEste\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T22:58:08.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Programas.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Models\\Programas.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Models\\Programas.cs",
@@ -58,12 +139,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Models\\Programas.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-11T22:35:42.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-11T22:35:42.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "SignUp.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Login\\SignUp.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Login\\SignUp.cshtml",
@@ -75,19 +155,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Login\\Login.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Login\\Login.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Views\\Login\\Login.cshtml",
               "RelativeToolTip": "RadioVozDelEste\\Views\\Login\\Login.cshtml",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACYAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-11T14:38:20.499Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\LoginController.cs",
@@ -99,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\DataAccess\\Repository\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\DataAccess\\Repository\\UsuarioRepository.cs",
@@ -111,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "PConnection.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\DataAccess\\Connection\\PConnection.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\DataAccess\\Connection\\PConnection.cs",
@@ -123,15 +203,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Model1.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Models\\Model1.edmx",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Models\\Model1.edmx",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\Programacion III\\RepositorioRadio\\RadioVozDelEste\\RadioVozDelEste\\Models\\Model1.edmx [Diagram1]",
               "RelativeToolTip": "RadioVozDelEste\\Models\\Model1.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-06-08T02:27:17.475Z",
-              "EditorCaption": " [Diagram1]"
+              "WhenOpened": "2025-06-08T02:27:17.475Z"
             }
           ]
         }
