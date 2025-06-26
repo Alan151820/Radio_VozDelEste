@@ -15,9 +15,40 @@ namespace RadioVozDelEste.Controllers
         private Radio_VozDelEsteEntities db = new Radio_VozDelEsteEntities();
 
         // GET: Noticias
-        public ActionResult Index()
+        public ActionResult MainPage()
         {
-            return View(db.Noticias.ToList());
+            var noticias = db.Noticias
+         .Include(n => n.Categorias)
+         .Include(n => n.Programas)
+         .ToList()
+         .GroupBy(n => n.Categorias.Nombre)
+         .ToList();
+
+            return View(noticias);
+        }
+        public ActionResult PorCategoria(string categoria)
+        {
+            var noticiasFiltradas = db.Noticias
+                .Include(n => n.Categorias)
+                .Include(n => n.Programas)
+                .Where(n => n.Categorias.Nombre == categoria)
+                .OrderByDescending(n => n.FechaPublicacion)
+                .ToList();
+
+            ViewBag.CategoriaSeleccionada = categoria;
+            return View(noticiasFiltradas);
+        }
+        public ActionResult PorPrograma(string programa)
+        {
+            var noticiasPorPrograma = db.Noticias
+                .Include(n => n.Categorias)
+                .Include(n => n.Programas)
+                .Where(n => n.Programas.Nombre == programa)
+                .OrderByDescending(n => n.FechaPublicacion)
+                .ToList();
+
+            ViewBag.CategoriaSeleccionada = programa;
+            return View(noticiasPorPrograma);
         }
 
         // GET: Noticias/Details/5

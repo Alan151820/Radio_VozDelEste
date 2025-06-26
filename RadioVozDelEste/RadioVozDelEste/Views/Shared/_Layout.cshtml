@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+@{
+    var programas = new RadioVozDelEste.Models.Radio_VozDelEsteEntities().Programas.ToList();
+}
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,54 +12,51 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav id="navfix" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    title="Alternar navegación" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
 
+                <ul class="navbar-nav flex-grow-1">
                     @if (Session["Rol"] != null)
                     {
                         string rol = Session["Rol"].ToString();
 
                         if (rol == "Administrador")
                         {
-                            <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Calendario", "Index", "Horarios", new { area = "" }, new { @class = "nav-link" })</li>
-
-
+                            <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Calendario", "Index", "Horarios", null, new { @class = "nav-link" })</li>
                         }
                         else if (rol == "Cliente")
                         {
-                            <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Calendario", "Index", "Horarios", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
 
-
-
+                            <li class="nav-item">
+                                <select id="ddl" class="nav-link nav-select">
+                                    <option selected disabled hidden>Contenido</option>
+                                    @foreach (var prog in programas)
+                                    {
+                                        <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
+                                            @prog.Nombre
+                                        </option>
+                                    }
+                                </select>
+                            </li>
                         }
                         else if (rol == "Editor")
                         {
-
-                            <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-
+                            <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Acerca de", "About", "Home", null, new { @class = "nav-link" })</li>
                         }
-
-
                     }
-
                 </ul>
             </div>
         </div>
@@ -73,5 +73,61 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ddl = document.getElementById("ddl");
+            if (ddl) {
+                ddl.addEventListener("change", function () {
+                    const destino = this.value;
+                    if (destino) {
+                        window.location.href = destino;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+
+<style>
+    #ddl {
+        border: none;
+        color: #b99c9c;
+        font-size: 15px;
+        width: 130px;
+        background-color: #29222200;
+    }
+
+    .option {
+        background-color: aliceblue;
+        border: none;
+    }
+
+    .nav-select {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        appearance: none;
+    }
+
+        .nav-select option {
+            background-color: #252525;
+            color: white;
+            border: none;
+        }
+
+    #navfix {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    body {
+        padding-top: 70px; /* ajustá este valor según la altura real de tu navbar */
+    }
+</style>

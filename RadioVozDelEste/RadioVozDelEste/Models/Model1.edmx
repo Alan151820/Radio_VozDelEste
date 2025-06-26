@@ -77,6 +77,7 @@
           <Property Name="FechaPublicacion" Type="datetime" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CategoriaID" Type="int" Nullable="false" />
+          <Property Name="ProgramaID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Patrocinadores">
           <Key>
@@ -240,7 +241,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Noticias__Catego__10566F31">
+        <Association Name="FK__Noticias__Catego__1332DBDC">
           <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
           <End Role="Noticias" Type="Self.Noticias" Multiplicity="*" />
           <ReferentialConstraint>
@@ -249,6 +250,18 @@
             </Principal>
             <Dependent Role="Noticias">
               <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Noticias__Progra__14270015">
+          <End Role="Programas" Type="Self.Programas" Multiplicity="1" />
+          <End Role="Noticias" Type="Self.Noticias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programas">
+              <PropertyRef Name="ProgramaID" />
+            </Principal>
+            <Dependent Role="Noticias">
+              <PropertyRef Name="ProgramaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -367,8 +380,12 @@
             <End Role="Programas" EntitySet="Programas" />
             <End Role="Horarios" EntitySet="Horarios" />
           </AssociationSet>
-          <AssociationSet Name="FK__Noticias__Catego__10566F31" Association="Self.FK__Noticias__Catego__10566F31">
+          <AssociationSet Name="FK__Noticias__Catego__1332DBDC" Association="Self.FK__Noticias__Catego__1332DBDC">
             <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Noticias" EntitySet="Noticias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Noticias__Progra__14270015" Association="Self.FK__Noticias__Progra__14270015">
+            <End Role="Programas" EntitySet="Programas" />
             <End Role="Noticias" EntitySet="Noticias" />
           </AssociationSet>
           <AssociationSet Name="FK__Patrocina__PlanI__48CFD27E" Association="Self.FK__Patrocina__PlanI__48CFD27E">
@@ -455,6 +472,8 @@
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CategoriaID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Categorias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" FromRole="Noticias" ToRole="Categorias" />
+          <Property Name="ProgramaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Programas" Relationship="Radio_VozDelEsteModel.FK__Noticias__Progra__14270015" FromRole="Noticias" ToRole="Programas" />
         </EntityType>
         <EntityType Name="Patrocinadores">
           <Key>
@@ -496,6 +515,7 @@
           <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__Progr__4E88ABD4" FromRole="Programas" ToRole="Comentarios" />
           <NavigationProperty Name="Conductores" Relationship="Self.Programas_Conductores" FromRole="Programas" ToRole="Conductores" />
           <NavigationProperty Name="Horarios" Relationship="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" FromRole="Programas" ToRole="Horarios" />
+          <NavigationProperty Name="Noticias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Progra__14270015" FromRole="Programas" ToRole="Noticias" />
         </EntityType>
         <EntityType Name="RegistrosClimaticos">
           <Key>
@@ -682,6 +702,10 @@
             <End Role="Categorias" EntitySet="Categorias" />
             <End Role="Noticias" EntitySet="Noticias" />
           </AssociationSet>
+          <AssociationSet Name="FK__Noticias__Progra__14270015" Association="Radio_VozDelEsteModel.FK__Noticias__Progra__14270015">
+            <End Role="Programas" EntitySet="Programas" />
+            <End Role="Noticias" EntitySet="Noticias" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Dias">
           <Key>
@@ -747,6 +771,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Noticias__Progra__14270015">
+          <End Type="Radio_VozDelEsteModel.Programas" Role="Programas" Multiplicity="1" />
+          <End Type="Radio_VozDelEsteModel.Noticias" Role="Noticias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programas">
+              <PropertyRef Name="ProgramaID" />
+            </Principal>
+            <Dependent Role="Noticias">
+              <PropertyRef Name="ProgramaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -798,6 +834,7 @@
           <EntitySetMapping Name="Noticias">
             <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Noticias">
               <MappingFragment StoreEntitySet="Noticias">
+                <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
                 <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
                 <ScalarProperty Name="NoticiaID" ColumnName="NoticiaID" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />

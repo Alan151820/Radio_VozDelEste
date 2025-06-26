@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\usuarios\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -15,19 +15,31 @@
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\horarios\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\noticias\\porprograma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\noticias\\porprograma.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\noticias\\porcategoria.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\noticias\\porcategoria.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\horarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\controllers\\noticiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\noticiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\noticias\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\noticias\\mainpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\horarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -35,28 +47,28 @@
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\horarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\views\\clima\\climaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\clima\\climaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\controllers\\climacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\controllers\\climacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\climacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\models\\clima.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\horarios\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\horarios\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\views\\clima\\climaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\views\\clima\\climaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\models\\clima.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\models\\clima.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|c:\\users\\dell\\onedrive\\escritorio\\alan\\repoobligatorio\\radio_vozdeleste\\radiovozdeleste\\radiovozdeleste\\controllers\\noticiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\noticiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|solutionrelative:radiovozdeleste\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE0570F9-E544-4FDF-ABB7-9E1917DCA744}|RadioVozDelEste\\RadioVozDelEste.csproj|C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\radiovozdeleste\\models\\programas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,13 +106,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PorPrograma.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\PorPrograma.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Noticias\\PorPrograma.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\PorPrograma.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Noticias\\PorPrograma.cshtml",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAAwFgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T20:45:02.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PorCategoria.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\PorCategoria.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Noticias\\PorCategoria.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\PorCategoria.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Noticias\\PorCategoria.cshtml",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAAwF4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T20:44:43.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainPage.cshtml",
+              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\MainPage.cshtml",
+              "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Noticias\\MainPage.cshtml",
+              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Noticias\\MainPage.cshtml",
+              "RelativeToolTip": "RadioVozDelEste\\Views\\Noticias\\MainPage.cshtml",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAwIUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T20:43:39.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Usuarios\\Login.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Usuarios\\Login.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Usuarios\\Login.cshtml",
               "RelativeToolTip": "RadioVozDelEste\\Views\\Usuarios\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAALQAAAAAAAAA",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAAwIoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-26T13:50:06.134Z",
               "EditorCaption": ""
@@ -113,14 +164,14 @@
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\UsuariosController.cs",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\UsuariosController.cs",
               "RelativeToolTip": "RadioVozDelEste\\Controllers\\UsuariosController.cs",
-              "ViewState": "AQIAAIcAAAAAAAAAAAAwwKoAAAAFAAAA",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAqwKIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T13:48:54.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Delete.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Horarios\\Delete.cshtml",
@@ -128,12 +179,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Views\\Horarios\\Delete.cshtml",
               "ViewState": "AQIAAEMAAAAAAAAAAAAYwF4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-26T13:47:06.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T13:47:06.039Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "ClimaIndex.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Clima\\ClimaIndex.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Clima\\ClimaIndex.cshtml",
@@ -141,12 +191,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Views\\Clima\\ClimaIndex.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-26T13:43:36.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T13:43:36.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "Clima.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Models\\Clima.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Models\\Clima.cs",
@@ -154,38 +203,36 @@
               "RelativeToolTip": "RadioVozDelEste\\Models\\Clima.cs",
               "ViewState": "AQIAAC8BAAAAAAAAAAAAAEQBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T13:39:24.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T13:39:24.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ClimaController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\ClimaController.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\ClimaController.cs",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\ClimaController.cs",
               "RelativeToolTip": "RadioVozDelEste\\Controllers\\ClimaController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACYAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T13:38:45.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T13:38:45.458Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "NoticiasController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\NoticiasController.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\NoticiasController.cs",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\NoticiasController.cs",
               "RelativeToolTip": "RadioVozDelEste\\Controllers\\NoticiasController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwCgAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T13:35:39.533Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
@@ -193,12 +240,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Views\\Horarios\\Details.cshtml",
               "ViewState": "AQIAAGMAAAAAAAAAAAAgwIEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-16T15:46:57.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T15:46:57.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
@@ -206,12 +252,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Views\\Horarios\\Index.cshtml",
               "ViewState": "AQIAACEAAAAAAAAAAAAYwMMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-13T00:50:56.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T00:50:56.816Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "HorariosController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HorariosController.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\HorariosController.cs",
@@ -219,8 +264,7 @@
               "RelativeToolTip": "RadioVozDelEste\\Controllers\\HorariosController.cs",
               "ViewState": "AQIAAHMAAAAAAAAAAAAwwJYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T00:50:45.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T00:50:45.892Z"
             },
             {
               "$type": "Document",
@@ -230,14 +274,14 @@
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "RadioVozDelEste\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAACkAAAAAAAAAAAAgwE0AAAAAAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAwIQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-12T23:00:11.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Controllers\\HomeController.cs",
@@ -245,12 +289,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T22:58:08.076Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T22:58:08.076Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Programas.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Models\\Programas.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Models\\Programas.cs",
@@ -258,12 +301,11 @@
               "RelativeToolTip": "RadioVozDelEste\\Models\\Programas.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-11T22:35:42.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-11T22:35:42.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "SignUp.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Views\\Login\\SignUp.cshtml",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Views\\Login\\SignUp.cshtml",
@@ -271,8 +313,7 @@
               "RelativeToolTip": "RadioVozDelEste\\Views\\Login\\SignUp.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-11T15:36:06.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-11T15:36:06.79Z"
             },
             {
               "$type": "Document",
@@ -289,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\DataAccess\\Repository\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\DataAccess\\Repository\\UsuarioRepository.cs",
@@ -297,12 +338,11 @@
               "RelativeToolTip": "RadioVozDelEste\\DataAccess\\Repository\\UsuarioRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T22:16:30.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T22:16:30.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "PConnection.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\DataAccess\\Connection\\PConnection.cs",
               "RelativeDocumentMoniker": "RadioVozDelEste\\DataAccess\\Connection\\PConnection.cs",
@@ -310,20 +350,18 @@
               "RelativeToolTip": "RadioVozDelEste\\DataAccess\\Connection\\PConnection.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T22:08:49.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T22:08:49.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 8,
               "Title": "Model1.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Models\\Model1.edmx",
               "RelativeDocumentMoniker": "RadioVozDelEste\\Models\\Model1.edmx",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\ALAN\\RepoObligatorio\\Radio_VozDelEste\\RadioVozDelEste\\RadioVozDelEste\\Models\\Model1.edmx [Diagram1]",
               "RelativeToolTip": "RadioVozDelEste\\Models\\Model1.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-06-08T02:27:17.475Z",
-              "EditorCaption": " [Diagram1]"
+              "WhenOpened": "2025-06-08T02:27:17.475Z"
             }
           ]
         }

@@ -1,0 +1,88 @@
+﻿@model List<RadioVozDelEste.Models.Noticias>
+@{
+    ViewBag.Title = "Noticias por Programa";
+}
+
+<h2 class="spanGeneral">@ViewBag.CategoriaSeleccionada</h2>
+
+<div class="FilaNoticias">
+    @foreach (var item in Model)
+    {
+        <div class="divNoticia">
+            <div class="ImagenContainer">
+                <img src="@item.Imagen" class="ImagenNoticia" alt="Imagen de la noticia" />
+                <span class="EtiquetaActual"> @item.Categorias.Nombre</span>
+            </div>
+            <strong class="ProgramaNoticia">@item.Programas.Nombre.ToUpper()</strong><br />
+            <h5 class="TituloNoticia">@item.Titulo</h5>
+            <p class="card-text">
+                <small class="text-muted">Publicado el: @item.FechaPublicacion.ToShortDateString()</small>
+            </p>
+        </div>
+    }
+</div>
+
+<style>
+    .spanGeneral {
+        color: blue;
+        border-bottom: 3px solid blue;
+        margin-top: 60px;
+    }
+
+    .divNoticia {
+        width: 100%;
+        max-width: 30%;
+        margin-bottom: 40px;
+    }
+
+    .FilaNoticias {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .ProgramaNoticia {
+        font-family: 'Malgun Gothic';
+        color: #2d36de;
+    }
+
+    .TituloNoticia {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .ImagenContainer {
+        position: relative;
+    }
+
+    .ImagenNoticia {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .EtiquetaActual {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ffd800;
+        color: #fff;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .divNoticia {
+        transition: all 0.3s ease-in-out;
+    }
+
+        .divNoticia:hover .ImagenNoticia {
+            filter: grayscale(100%);
+            cursor: pointer;
+        }
+
+        .divNoticia:hover .TituloNoticia {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+</style>

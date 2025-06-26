@@ -46,6 +46,7 @@
     <EntitySetMapping Name="Noticias">
       <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Noticias">
         <MappingFragment StoreEntitySet="Noticias">
+          <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
           <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
           <ScalarProperty Name="NoticiaID" ColumnName="NoticiaID" />
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />

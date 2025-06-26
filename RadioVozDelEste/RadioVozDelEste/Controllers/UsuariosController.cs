@@ -140,25 +140,17 @@ namespace RadioVozDelEste.Controllers
         public ActionResult Login(string email, string contraseña)
         {
             var usuario = db.Usuarios
-            .Include("Roles")
-            .FirstOrDefault(x => x.Email == email && x.Contraseña == contraseña);
+      .Include("Roles")
+      .FirstOrDefault(x => x.Email == email && x.Contraseña == contraseña);
 
-            if (usuario.Roles != null)
+            if (usuario != null && usuario.Roles != null)
             {
                 Session["Rol"] = usuario.Roles.Nombre;
-                switch (usuario.Roles.Nombre)
-                {
-                    case "Administrador":
-                        return RedirectToAction("Index", "Home");
-                    case "Editor":
-                        return RedirectToAction("Index", "Home");
-                    default:
-                        return RedirectToAction("Index", "Home");
-                }
+                return RedirectToAction("MainPage", "Noticias");
             }
             else
             {
-                ViewBag.Error = "No se pudo determinar el rol del usuario.";
+                ViewBag.Error = "Email o contraseña incorrecto";
                 return View();
             }
         }

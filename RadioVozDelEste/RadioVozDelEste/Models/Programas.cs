@@ -20,6 +20,7 @@ namespace RadioVozDelEste.Models
             this.Comentarios = new HashSet<Comentarios>();
             this.Conductores = new HashSet<Conductores>();
             this.Horarios = new HashSet<Horarios>();
+            this.Noticias = new HashSet<Noticias>();
         }
     
         public int ProgramaID { get; set; }
@@ -33,5 +34,7 @@ namespace RadioVozDelEste.Models
         public virtual ICollection<Conductores> Conductores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horarios> Horarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Noticias> Noticias { get; set; }
     }
 }

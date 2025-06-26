@@ -315,13 +315,15 @@
     <Content Include="Views\Noticias\Delete.cshtml" />
     <Content Include="Views\Noticias\Details.cshtml" />
     <Content Include="Views\Noticias\Edit.cshtml" />
-    <Content Include="Views\Noticias\Index.cshtml" />
+    <Content Include="Views\Noticias\MainPage.cshtml" />
     <Content Include="Views\Clima\ClimaIndex.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
+    <Content Include="Views\Noticias\PorCategoria.cshtml" />
+    <Content Include="Views\Noticias\PorPrograma.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -72,6 +72,7 @@
     <Property Name="FechaPublicacion" Type="datetime" Nullable="false" />
     <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CategoriaID" Type="int" Nullable="false" />
+    <Property Name="ProgramaID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Patrocinadores">
     <Key>
@@ -235,7 +236,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Noticias__Catego__10566F31">
+  <Association Name="FK__Noticias__Catego__1332DBDC">
     <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
     <End Role="Noticias" Type="Self.Noticias" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,6 +245,18 @@
       </Principal>
       <Dependent Role="Noticias">
         <PropertyRef Name="CategoriaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Noticias__Progra__14270015">
+    <End Role="Programas" Type="Self.Programas" Multiplicity="1" />
+    <End Role="Noticias" Type="Self.Noticias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programas">
+        <PropertyRef Name="ProgramaID" />
+      </Principal>
+      <Dependent Role="Noticias">
+        <PropertyRef Name="ProgramaID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -362,8 +375,12 @@
       <End Role="Programas" EntitySet="Programas" />
       <End Role="Horarios" EntitySet="Horarios" />
     </AssociationSet>
-    <AssociationSet Name="FK__Noticias__Catego__10566F31" Association="Self.FK__Noticias__Catego__10566F31">
+    <AssociationSet Name="FK__Noticias__Catego__1332DBDC" Association="Self.FK__Noticias__Catego__1332DBDC">
       <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Noticias" EntitySet="Noticias" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Noticias__Progra__14270015" Association="Self.FK__Noticias__Progra__14270015">
+      <End Role="Programas" EntitySet="Programas" />
       <End Role="Noticias" EntitySet="Noticias" />
     </AssociationSet>
     <AssociationSet Name="FK__Patrocina__PlanI__48CFD27E" Association="Self.FK__Patrocina__PlanI__48CFD27E">
