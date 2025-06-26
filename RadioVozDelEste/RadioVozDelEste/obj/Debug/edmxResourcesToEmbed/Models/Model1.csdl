@@ -53,6 +53,8 @@
     <Property Name="Contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FechaPublicacion" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoriaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categorias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" FromRole="Noticias" ToRole="Categorias" />
   </EntityType>
   <EntityType Name="Patrocinadores">
     <Key>
@@ -104,6 +106,10 @@
     <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Temperatura" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
     <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TemperaturaMaxima" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="TemperaturaMinima" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="Humedad" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="Viento" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -271,6 +277,11 @@
       <End Role="Programas" EntitySet="Programas" />
       <End Role="Horarios" EntitySet="Horarios" />
     </AssociationSet>
+    <EntitySet Name="Categorias" EntityType="Radio_VozDelEsteModel.Categorias" />
+    <AssociationSet Name="FK__Noticias__Catego__10566F31" Association="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Noticias" EntitySet="Noticias" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Dias">
     <Key>
@@ -313,6 +324,26 @@
       </Principal>
       <Dependent Role="Horarios">
         <PropertyRef Name="ProgramaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="CategoriaID" />
+    </Key>
+    <Property Name="CategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Noticias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" FromRole="Categorias" ToRole="Noticias" />
+  </EntityType>
+  <Association Name="FK__Noticias__Catego__10566F31">
+    <End Type="Radio_VozDelEsteModel.Categorias" Role="Categorias" Multiplicity="1" />
+    <End Type="Radio_VozDelEsteModel.Noticias" Role="Noticias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaID" />
+      </Principal>
+      <Dependent Role="Noticias">
+        <PropertyRef Name="CategoriaID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

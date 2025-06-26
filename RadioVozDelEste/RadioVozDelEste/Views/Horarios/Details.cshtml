@@ -40,9 +40,9 @@
         </div>
 
 
-        <p>
-            @Html.ActionLink("Back to List", "Index")
-        </p>
+        <div class="btn-container">
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btnDetalleHorario" })
+        </div>
     </div>
 </div>
 
@@ -50,9 +50,10 @@
 
 
 <style>
-    .hNombre{
-        color:#ffd800
+    .hNombre {
+        color: #ffd800
     }
+
     .containerDetails {
         display: flex;
         margin-top: 50px;
@@ -61,7 +62,7 @@
     .ImagenDeRadio {
         width: 400px;
         height: 400px;
-        border-radius:50%;
+        border-radius: 50%;
     }
 
     .containerInfo {
@@ -85,7 +86,6 @@
         font-size: 18px;
         font-weight: 700;
         color: #ffd800;
-      
     }
 
     .lista-horarios {
@@ -105,10 +105,25 @@
 
 
 
+    .btn-container {
+        text-align: right;
+        padding-right: 60px;
+    }
 
+    .btnDetalleHorario {
+        color: black;
+        border: 1px solid #bbd50c;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        background-color: transparent;
+        display: inline-block;
+    }
 
-
-
-
-
+        .btnDetalleHorario:hover {
+            background-color: #c1c1c1;
+            color: black;
+            zoom: 1.03;
+        }
 </style>

@@ -19,5 +19,8 @@ namespace RadioVozDelEste.Models
         public string Contenido { get; set; }
         public System.DateTime FechaPublicacion { get; set; }
         public string Imagen { get; set; }
+        public int CategoriaID { get; set; }
+    
+        public virtual Categorias Categorias { get; set; }
     }
 }

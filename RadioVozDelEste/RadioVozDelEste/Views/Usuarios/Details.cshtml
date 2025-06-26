@@ -1,0 +1,58 @@
+﻿@model RadioVozDelEste.Models.Usuarios
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Usuarios</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Contraseña)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Contraseña)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Roles.Nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Roles.Nombre)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UsuarioID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

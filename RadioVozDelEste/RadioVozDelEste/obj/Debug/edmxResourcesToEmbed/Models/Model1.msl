@@ -46,6 +46,7 @@
     <EntitySetMapping Name="Noticias">
       <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Noticias">
         <MappingFragment StoreEntitySet="Noticias">
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
           <ScalarProperty Name="NoticiaID" ColumnName="NoticiaID" />
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="Contenido" ColumnName="Contenido" />
@@ -96,6 +97,10 @@
     <EntitySetMapping Name="RegistrosClimaticos">
       <EntityTypeMapping TypeName="Radio_VozDelEsteModel.RegistrosClimaticos">
         <MappingFragment StoreEntitySet="RegistrosClimaticos">
+          <ScalarProperty Name="Viento" ColumnName="Viento" />
+          <ScalarProperty Name="Humedad" ColumnName="Humedad" />
+          <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
+          <ScalarProperty Name="TemperaturaMaxima" ColumnName="TemperaturaMaxima" />
           <ScalarProperty Name="ClimaID" ColumnName="ClimaID" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -164,6 +169,14 @@
           <ScalarProperty Name="DiaID" ColumnName="DiaID" />
           <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
           <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

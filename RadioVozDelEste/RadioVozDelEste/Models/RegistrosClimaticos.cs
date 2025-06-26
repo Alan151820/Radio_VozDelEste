@@ -19,5 +19,9 @@ namespace RadioVozDelEste.Models
         public string Descripcion { get; set; }
         public decimal Temperatura { get; set; }
         public string Imagen { get; set; }
+        public decimal TemperaturaMaxima { get; set; }
+        public decimal TemperaturaMinima { get; set; }
+        public decimal Humedad { get; set; }
+        public decimal Viento { get; set; }
     }
 }

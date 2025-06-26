@@ -1,56 +1,94 @@
 ﻿@model RadioVozDelEste.Models.Horarios
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Horario";
 }
 
-<h2>Delete</h2>
+<h3 class="text-danger">¿Estás seguro de que deseas eliminar este registro?</h3>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Horarios</h4>
+<div class="detalle-horario">
+    <h4>Detalles del horario</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraInicio)
-        </dt>
+        <dt>Hora de inicio</dt>
+        <dd>@Html.DisplayFor(model => model.HoraInicio)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoraInicio)
-        </dd>
+        <dt>Hora de finalización</dt>
+        <dd>@Html.DisplayFor(model => model.HoraFin)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraFin)
-        </dt>
+        <dt>Día</dt>
+        <dd>@Html.DisplayFor(model => model.Dias.Nombre)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoraFin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dias.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dias.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Programas.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Programas.Nombre)
-        </dd>
-
+        <dt>Programa</dt>
+        <dd>@Html.DisplayFor(model => model.Programas.Nombre)</dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
         </div>
     }
 </div>
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+        color: #bbd50c;
+    }
+
+    .text-danger {
+        color: #c82333;
+        font-size: 1.1rem;
+    }
+
+    .detalle-horario {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #dee2e6;
+    }
+
+    .dl-horizontal dt {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .dl-horizontal dd {
+        margin-bottom: 10px;
+    }
+
+    .form-actions {
+        margin-top: 20px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        padding: 8px 16px;
+        color: white;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+    }
+
+        .btn-danger:hover {
+            background-color: #b02a37;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+</style>

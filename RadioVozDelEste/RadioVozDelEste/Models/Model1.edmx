@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Radio_VozDelEsteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="CI" />
@@ -69,6 +76,7 @@
           <Property Name="Contenido" Type="varchar(max)" Nullable="false" />
           <Property Name="FechaPublicacion" Type="datetime" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CategoriaID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Patrocinadores">
           <Key>
@@ -122,6 +130,10 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Temperatura" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TemperaturaMaxima" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="TemperaturaMinima" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Humedad" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Viento" Type="decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -228,6 +240,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Noticias__Catego__10566F31">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+          <End Role="Noticias" Type="Self.Noticias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="Noticias">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Patrocina__PlanI__48CFD27E">
           <End Role="Planes" Type="Self.Planes" Multiplicity="1" />
           <End Role="Patrocinadores" Type="Self.Patrocinadores" Multiplicity="*" />
@@ -301,6 +325,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Radio_VozDelEsteModelStoreContainer">
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comentarios" EntityType="Self.Comentarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conductores" EntityType="Self.Conductores" Schema="dbo" store:Type="Tables" />
@@ -341,6 +366,10 @@
           <AssociationSet Name="FK__Horarios__HoraFi__71D1E811" Association="Self.FK__Horarios__HoraFi__71D1E811">
             <End Role="Programas" EntitySet="Programas" />
             <End Role="Horarios" EntitySet="Horarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Noticias__Catego__10566F31" Association="Self.FK__Noticias__Catego__10566F31">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Noticias" EntitySet="Noticias" />
           </AssociationSet>
           <AssociationSet Name="FK__Patrocina__PlanI__48CFD27E" Association="Self.FK__Patrocina__PlanI__48CFD27E">
             <End Role="Planes" EntitySet="Planes" />
@@ -424,6 +453,8 @@
           <Property Name="Contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaPublicacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoriaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" FromRole="Noticias" ToRole="Categorias" />
         </EntityType>
         <EntityType Name="Patrocinadores">
           <Key>
@@ -475,6 +506,10 @@
           <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Temperatura" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TemperaturaMaxima" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="TemperaturaMinima" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Humedad" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
+          <Property Name="Viento" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -642,6 +677,11 @@
             <End Role="Programas" EntitySet="Programas" />
             <End Role="Horarios" EntitySet="Horarios" />
           </AssociationSet>
+          <EntitySet Name="Categorias" EntityType="Radio_VozDelEsteModel.Categorias" />
+          <AssociationSet Name="FK__Noticias__Catego__10566F31" Association="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Noticias" EntitySet="Noticias" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Dias">
           <Key>
@@ -684,6 +724,26 @@
             </Principal>
             <Dependent Role="Horarios">
               <PropertyRef Name="ProgramaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Noticias" Relationship="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" FromRole="Categorias" ToRole="Noticias" />
+        </EntityType>
+        <Association Name="FK__Noticias__Catego__10566F31">
+          <End Type="Radio_VozDelEsteModel.Categorias" Role="Categorias" Multiplicity="1" />
+          <End Type="Radio_VozDelEsteModel.Noticias" Role="Noticias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="Noticias">
+              <PropertyRef Name="CategoriaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -738,6 +798,7 @@
           <EntitySetMapping Name="Noticias">
             <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Noticias">
               <MappingFragment StoreEntitySet="Noticias">
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
                 <ScalarProperty Name="NoticiaID" ColumnName="NoticiaID" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="Contenido" ColumnName="Contenido" />
@@ -788,6 +849,10 @@
           <EntitySetMapping Name="RegistrosClimaticos">
             <EntityTypeMapping TypeName="Radio_VozDelEsteModel.RegistrosClimaticos">
               <MappingFragment StoreEntitySet="RegistrosClimaticos">
+                <ScalarProperty Name="Viento" ColumnName="Viento" />
+                <ScalarProperty Name="Humedad" ColumnName="Humedad" />
+                <ScalarProperty Name="TemperaturaMinima" ColumnName="TemperaturaMinima" />
+                <ScalarProperty Name="TemperaturaMaxima" ColumnName="TemperaturaMaxima" />
                 <ScalarProperty Name="ClimaID" ColumnName="ClimaID" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -856,6 +921,14 @@
                 <ScalarProperty Name="DiaID" ColumnName="DiaID" />
                 <ScalarProperty Name="ProgramaID" ColumnName="ProgramaID" />
                 <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

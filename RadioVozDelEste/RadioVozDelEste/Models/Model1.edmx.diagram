@@ -30,6 +30,8 @@
         <EntityTypeShape EntityType="Radio_VozDelEsteModel.Horarios" Width="1.5" PointX="10.5" PointY="1.125" />
         <AssociationConnector Association="Radio_VozDelEsteModel.FK__Horarios__DiaID__72C60C4A" />
         <AssociationConnector Association="Radio_VozDelEsteModel.FK__Horarios__HoraFi__71D1E811" />
+        <EntityTypeShape EntityType="Radio_VozDelEsteModel.Categorias" Width="1.5" PointX="0.75" PointY="13.125" />
+        <AssociationConnector Association="Radio_VozDelEsteModel.FK__Noticias__Catego__10566F31" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -40,5 +40,6 @@ namespace RadioVozDelEste.Models
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Dias> Dias { get; set; }
         public virtual DbSet<Horarios> Horarios { get; set; }
+        public virtual DbSet<Categorias> Categorias { get; set; }
     }
 }
