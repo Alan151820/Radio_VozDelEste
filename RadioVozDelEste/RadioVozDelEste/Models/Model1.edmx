@@ -94,6 +94,8 @@
           </Key>
           <Property Name="PermisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Controlador" Type="varchar" MaxLength="100" />
+          <Property Name="Accion" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Planes">
           <Key>
@@ -160,6 +162,7 @@
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RolID" Type="int" Nullable="false" />
+          <Property Name="Imagen" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Usuarios_Permisos">
           <Key>
@@ -492,6 +495,8 @@
           <Property Name="PermisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Usuarios" Relationship="Self.Usuarios_Permisos" FromRole="Permisos" ToRole="Usuarios" />
+          <Property Name="Controlador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Planes">
           <Key>
@@ -560,6 +565,7 @@
           <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__Usuari__403A8C7D" FromRole="Usuarios" ToRole="Clientes" />
           <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__RolID__3A81B327" FromRole="Usuarios" ToRole="Roles" />
           <NavigationProperty Name="Permisos" Relationship="Self.Usuarios_Permisos" FromRole="Usuarios" ToRole="Permisos" />
+          <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Clientes__Usuari__403A8C7D">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
@@ -857,6 +863,8 @@
           <EntitySetMapping Name="Permisos">
             <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Permisos">
               <MappingFragment StoreEntitySet="Permisos">
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
                 <ScalarProperty Name="PermisoID" ColumnName="PermisoID" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
@@ -918,6 +926,7 @@
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

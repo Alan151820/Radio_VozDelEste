@@ -69,6 +69,8 @@
     <EntitySetMapping Name="Permisos">
       <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Permisos">
         <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Controlador" ColumnName="Controlador" />
           <ScalarProperty Name="PermisoID" ColumnName="PermisoID" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
@@ -130,6 +132,7 @@
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="Radio_VozDelEsteModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Email" ColumnName="Email" />

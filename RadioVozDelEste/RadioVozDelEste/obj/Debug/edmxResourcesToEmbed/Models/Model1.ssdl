@@ -89,6 +89,8 @@
     </Key>
     <Property Name="PermisoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Controlador" Type="varchar" MaxLength="100" />
+    <Property Name="Accion" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Planes">
     <Key>
@@ -155,6 +157,7 @@
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="RolID" Type="int" Nullable="false" />
+    <Property Name="Imagen" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Usuarios_Permisos">
     <Key>

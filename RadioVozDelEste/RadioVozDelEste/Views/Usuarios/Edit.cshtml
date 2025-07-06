@@ -1,69 +1,242 @@
 ﻿@model RadioVozDelEste.Models.Usuarios
 
 @{
-    Layout = null;
+    ViewBag.Title = "Editar Usuario";
 }
 
-<!DOCTYPE html>
+<h2>Editar Usuario</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>Usuarios</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.UsuarioID)
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="edit-container">
+        <div class="profile-image-section">
+            @if (!string.IsNullOrEmpty(Model.Imagen))
+            {
+                <img src="@Url.Content(Model.Imagen)" alt="Imagen de perfil" class="profile-image" />
+            }
+            else
+            {
+                <img src="~/images/default-profile.png" alt="Imagen por defecto" class="profile-image" />
+            }
+
+            <label for="file-upload" class="btn-edit" title="Editar imagen">
+                <i class="fa fa-pencil"></i>
+            </label>
+            <input id="file-upload" type="file" name="ImagenPerfil" accept="image/*" class="file-input" />
+        </div>
+
+        <div class="form-section">
+            <div class="form-horizontal">
+                <h4>Usuarios</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.UsuarioID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Contraseña, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.RolID, "RolID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("RolID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.RolID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Contraseña, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                        @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
         </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
+
+    <div class="form-actions">
+        <input type="submit" value="Guardar" class="btn btn-default btn-save" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("← Volver al listado", "Index", null, new { @class = "back-link" })
+</div>
+
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2, h4 {
+        color: #0d2c54;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    .edit-container {
+        display: flex;
+        gap: 40px;
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        align-items: flex-start;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .profile-image-section {
+        flex: 0 0 200px;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 2px solid #0051ba;
+        margin-bottom: 10px;
+    }
+
+    .btn-edit {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: 38px;
+        background-color: #0051ba;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        transition: background-color 0.3s ease;
+        user-select: none;
+        margin: 0 auto 10px auto;
+    }
+
+    .btn-edit:hover {
+        background-color: #003f94;
+    }
+
+    .file-input {
+        display: none;
+    }
+
+    .form-section {
+        flex: 1 1 auto;
+        min-width: 300px;
+    }
+
+    .form-horizontal {
+        max-width: 600px;
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #2c3e50;
+        padding-top: 10px;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .col-md-2 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        text-align: right;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .col-md-10 {
+        flex: 1 1 70%;
+        max-width: 70%;
+    }
+
+    .form-control {
+        width: 100%;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        padding: 10px 14px;
+        font-size: 15px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #0051ba;
+        box-shadow: 0 0 0 0.2rem rgba(0, 81, 186, 0.25);
+        outline: none;
+    }
+
+    .form-actions {
+        max-width: 900px;
+        margin: 0 auto 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-save {
+        background-color: #0051ba;
+        color: white;
+        font-weight: 600;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .btn-save:hover {
+        background-color: #003f94;
+    }
+
+    .text-danger {
+        font-size: 0.9rem;
+        margin-top: 4px;
+        color: #d9534f;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        background: #0051ba;
+        margin-bottom: 30px;
+    }
+
+    .back-link {
+        margin-left: 20px;
+        font-weight: bold;
+        color: #0051ba;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />

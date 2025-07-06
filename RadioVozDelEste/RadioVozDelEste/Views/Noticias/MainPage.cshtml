@@ -3,11 +3,18 @@
 @{
     ViewBag.Title = "Inicio";
 }
+@functions {
+    public bool TienePermisoDeAccesoA(string controlador, string accion)
+    {
+        var permisos = Session["Permisos"] as List<string>;
+        return permisos != null && permisos.Contains($"{controlador}.{accion}");
+    }
+}
+
 
 <div class="divbtn">
     <button class="btnVivo">EN VIVO</button>
 </div>
-
 @foreach (var grupo in Model)
 {
     <h3 class="spanGeneral">
@@ -20,38 +27,84 @@
         @foreach (var item in grupo)
         {
             <div class="divNoticia">
-                <div class="ImagenContainer">
-                    <img src="@item.Imagen" class="ImagenNoticia" alt="Imagen de la noticia">
-                    @if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-2).Date)
-                    {
-                        <span class="EtiquetaActual"> ACTUAL</span>
-                    }
-                    else if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-7).Date)
-                    {
-                        <span class="EtiquetaActual"> DESTACADO</span>
-                    }
-                </div>
+                <a href="/Noticias/Details/@item.NoticiaID">
+                    <div class="ImagenContainer">
+                        <img src="@item.Imagen" class="ImagenNoticia" alt="Imagen de la noticia">
+                        @if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-2).Date)
+                        {
+                            <span class="EtiquetaActual"> ACTUAL</span>
+                        }
+                        else if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-7).Date)
+                        {
+                            <span class="EtiquetaActual"> DESTACADO</span>
+                        }
+                    </div>
+                </a>
                 <strong class="ProgramaNoticia">@item.Programas.Nombre.ToUpper()</strong><br />
-                <h5 class="TituloNoticia">@item.Titulo</h5>
+
+                <a class="LinkNoticia" href="/Noticias/Details/@item.NoticiaID">
+                    <h5 class="TituloNoticia">@item.Titulo</h5>
+                </a>
+
+
                 <p class="card-text">
                     <small class="text-muted">Publicado el: @item.FechaPublicacion.ToShortDateString()</small>
                 </p>
+
+
+                @{
+                    var rol = Session["Rol"]?.ToString();
+                }
+
+                <div class="botones-noticia" style="margin-top:10px;">
+                    @if (TienePermisoDeAccesoA("Noticias", "Edit") || rol == "Administrador")
+                    {
+                        <a href="@Url.Action("Edit", "Noticias", new { id = item.NoticiaID })" title="Editar" style="margin-right:8px;">
+                            <i data-lucide="edit-3" style="width:20px; height:20px; color:#0d6efd;"></i>
+                        </a>
+                    }
+                    @if (TienePermisoDeAccesoA("Noticias", "Delete") || rol == "Administrador")
+                    {
+                        <a href="@Url.Action("Delete", "Noticias", new { id = item.NoticiaID })" title="Eliminar">
+                            <i data-lucide="trash-2" style="width:20px; height:20px; color:#dc3545;"></i>
+                        </a>
+                    }
+                </div>
+
+
             </div>
+
         }
     </div>
 }
-
-
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 <style>
-    * {
-        margin-top: 0;
-    }
 
     .spanGeneral {
-        color: blue;
-        border-bottom: 3px solid blue;
         margin-top: 60px;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background-color: #1e2a78;
+        border-left: 6px solid #ffd800;
+        font-size: 1.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        color: white;
     }
+
+    .TituloCategoriaLink {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: color 0.2s ease;
+    }
+
+        .TituloCategoriaLink:hover {
+            color: #ffd800;
+        }
+
 
     .divNoticia {
         width: 100%;
@@ -71,6 +124,12 @@
 
     .TituloNoticia {
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    .LinkNoticia {
+        text-decoration: none;
+        color: inherit;
+        display: block;
     }
 
     .ImagenContainer {
@@ -105,30 +164,35 @@
         }
 
         .divNoticia:hover .TituloNoticia {
-            text-decoration: underline;
             cursor: pointer;
         }
 
-    .btnVivo {
-        border-radius: 30px;
-        padding: 0.5rem 1rem;
-        background-color: #b6ff00; /* ejemplo de rojo vivo */
-        color: white;
-        border: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
     .divbtn {
         display: flex;
-        justify-content: flex-end;
-        margin-top: 1rem;
-        background-color: gray;
-        padding: 10px;
+        justify-content: center;
+        margin-top: 20px;
     }
+
+    .btnVivo {
+        background-color: #0051ba; /* Azul fuerte */
+        color: white;
+        border: 2px solid #003f94;
+        padding: 12px 28px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+        .btnVivo:hover {
+            background-color: white;
+            color: #0051ba;
+            border-color: #0051ba;
+        }
 </style>
-
-
 
 
 

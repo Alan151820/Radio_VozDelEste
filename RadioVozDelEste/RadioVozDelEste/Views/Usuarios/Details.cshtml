@@ -19,35 +19,43 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Nombre)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Email)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Email)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Contraseña)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Contraseña)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Roles.Nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Roles.Nombre)
             </dd>
-    
+            <dt>Permisos</dt>
+            <dd>
+                <ul>
+                    @foreach (var permiso in Model.Permisos)
+                    {
+                        <li>@permiso.Descripcion</li>
+                    }
+                </ul>
+            </dd>
         </dl>
     </div>
     <p>

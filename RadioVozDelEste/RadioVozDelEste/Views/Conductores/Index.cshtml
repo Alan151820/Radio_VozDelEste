@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RadioVozDelEste.Models.Conductores>
+
+<div class="container mt-5">
+    <h2 class="titulo-tabla">Listado de Conductores</h2>
+
+    <div class="table-responsive tabla-programas">
+        <table class="table align-middle table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var conductor in Model)
+                {
+                    <tr>
+                        <td>@conductor.Nombre</td>
+                        <td class="desc-recortada" title="@conductor.Descripcion">@conductor.Descripcion</td>
+                        <td class="acciones">
+                            @Html.ActionLink("Editar", "Edit", new { id = conductor.ConductorID }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = conductor.ConductorID }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = conductor.ConductorID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .tabla-programas {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+    }
+
+        .tabla-programas th {
+            background-color: #0d6efd;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+        }
+
+        .tabla-programas td {
+            vertical-align: middle;
+            font-size: 15px;
+            color: #333;
+        }
+
+    .desc-recortada {
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .acciones a {
+        margin-right: 8px;
+        text-decoration: none;
+        color: #0d6efd;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+        .acciones a:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+
+    .titulo-tabla {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 25px;
+        color: #212529;
+    }
+</style>

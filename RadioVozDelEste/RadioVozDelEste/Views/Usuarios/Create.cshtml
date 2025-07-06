@@ -5,63 +5,89 @@
 }
 
 <!DOCTYPE html>
-
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
 <body>
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>Usuarios</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-                </div>
+
+        <div class="Registro">
+            @Html.LabelFor(m => m.Nombre, new { @class = "DatosRegistro" })
+            @Html.TextBoxFor(m => m.Nombre, new { placeholder = "Ingrese su nombre" })
+
+            @Html.LabelFor(m => m.Email, new { @class = "DatosRegistro" })
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Ingrese su correo", type = "email" })
+
+            @Html.LabelFor(m => m.Contraseña, new { @class = "DatosRegistro" })
+            @Html.PasswordFor(m => m.Contraseña, new { placeholder = "Cree una contraseña" })
+
+            <div class="OptionRegister">
+                <label class="OptionLogin">¿Ya tienes cuenta?</label>
+                <a href="/Usuarios/Login">Iniciar Sesión</a>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Contraseña, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.RolID, "RolID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("RolID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.RolID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
+
+            <button type="submit">Registrarse</button>
         </div>
     }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </body>
 </html>
+
+<style>
+    body {
+        background: linear-gradient(to right, #dfe9f3, #ffffff);
+    }
+
+    .Registro {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 300px;
+        margin: auto;
+        margin-top: 10vh;
+        font-family: sans-serif;
+        padding: 40px;
+        border: 4px solid transparent;
+        border-radius: 12px;
+        background-image: linear-gradient(white, white), linear-gradient(to right, #2c9fb4, #0e7a6d);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+
+    .DatosRegistro {
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .Registro input {
+        margin-top: 5px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgba(200, 200, 200, 0.4);
+        padding: 10px;
+        font-size: 14px;
+    }
+
+        .Registro input:focus {
+            outline: none;
+            background-color: rgba(200, 200, 200, 0.6);
+        }
+
+    .Registro button {
+        margin-top: 10px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .Registro button:hover {
+            background-color: #333;
+        }
+</style>

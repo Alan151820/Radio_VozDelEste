@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,16 +49,16 @@ namespace RadioVozDelEste.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UsuarioID,Nombre,Email,Contraseña,RolID")] Usuarios usuarios)
+        public ActionResult Create([Bind(Include = "Nombre,Email,Contraseña")] Usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
+                usuarios.RolID = 2;
                 db.Usuarios.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login", "Usuarios");
             }
 
-            ViewBag.RolID = new SelectList(db.Roles, "RolID", "Nombre", usuarios.RolID);
             return View(usuarios);
         }
 
@@ -75,6 +76,8 @@ namespace RadioVozDelEste.Controllers
             }
             ViewBag.RolID = new SelectList(db.Roles, "RolID", "Nombre", usuarios.RolID);
             return View(usuarios);
+
+
         }
 
         // POST: Usuarios/Edit/5
@@ -82,17 +85,39 @@ namespace RadioVozDelEste.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioID,Nombre,Email,Contraseña,RolID")] Usuarios usuarios)
+        public ActionResult Edit([Bind(Include = "UsuarioID,Nombre,Email,Contraseña")] Usuarios usuarios, HttpPostedFileBase ImagenPerfil)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuarios).State = EntityState.Modified;
+                var usuarioOriginal = db.Usuarios.Find(usuarios.UsuarioID);
+                if (usuarioOriginal == null)
+                {
+                    return HttpNotFound();
+                }
+
+                usuarioOriginal.Nombre = usuarios.Nombre;
+                usuarioOriginal.Email = usuarios.Email;
+                usuarioOriginal.Contraseña = usuarios.Contraseña;
+
+    
+                if (ImagenPerfil != null && ImagenPerfil.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(ImagenPerfil.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/Usuarios/"), fileName);
+                    ImagenPerfil.SaveAs(path);
+                    usuarioOriginal.Imagen = "/Images/Usuarios/" + fileName;
+
+                    Session["PhotoUrl"] = usuarioOriginal.Imagen;
+                }
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("MainPage", "Noticias");
             }
-            ViewBag.RolID = new SelectList(db.Roles, "RolID", "Nombre", usuarios.RolID);
+
             return View(usuarios);
         }
+
 
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
@@ -140,17 +165,29 @@ namespace RadioVozDelEste.Controllers
         public ActionResult Login(string email, string contraseña)
         {
             var usuario = db.Usuarios
-      .Include("Roles")
-      .FirstOrDefault(x => x.Email == email && x.Contraseña == contraseña);
+                .Include("Permisos") // Incluye permisos asociados
+                .FirstOrDefault(x => x.Email == email && x.Contraseña == contraseña);
 
-            if (usuario != null && usuario.Roles != null)
+            if (usuario != null)
             {
-                Session["Rol"] = usuario.Roles.Nombre;
-                return RedirectToAction("MainPage", "Noticias");
+                // Guardar datos del usuario en la sesión
+                Session["UserId"] = usuario.UsuarioID;
+                Session["UserName"] = usuario.Nombre;
+                Session["PhotoUrl"] = usuario.Imagen;
+                Session["Rol"] = usuario.Roles.Nombre.Trim();
+
+                // Guardar permisos en la sesión como lista de strings
+                var permisos = usuario.Permisos
+                    .Select(p => p.Controlador + "." + p.Accion)
+                    .ToList();
+
+                Session["Permisos"] = permisos;
+
+                return RedirectToAction("MainPage", "Noticias"); // Redirige a tu página principal
             }
             else
             {
-                ViewBag.Error = "Email o contraseña incorrecto";
+                ViewBag.Error = "Email o contraseña incorrectos";
                 return View();
             }
         }

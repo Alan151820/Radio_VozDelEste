@@ -1,0 +1,30 @@
+﻿@model RadioVozDelEste.Models.Usuarios
+@{
+    ViewBag.Title = "Editar Permisos";
+    var todosPermisos = ViewBag.TodosPermisos as List<RadioVozDelEste.Models.Permisos>;
+}
+
+<h2>Editar Permisos para @Model.Nombre</h2>
+
+@using (Html.BeginForm("EditarPermisos", "Permisos", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.UsuarioID)
+
+    <div>
+        <h4>Permisos</h4>
+        <ul>
+            @foreach (var permiso in todosPermisos)
+            {
+                <li>
+                    <label>
+                        <input type="checkbox" name="PermisosSeleccionados" value="@permiso.PermisoID"
+                               @(Model.Permisos.Any(p => p.PermisoID == permiso.PermisoID) ? "checked" : "") />
+                        @permiso.Descripcion
+                    </label>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <button type="submit">Guardar</button>
+}

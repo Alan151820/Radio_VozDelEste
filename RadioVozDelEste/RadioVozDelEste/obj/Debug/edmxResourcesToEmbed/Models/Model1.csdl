@@ -75,6 +75,8 @@
     <Property Name="PermisoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Usuarios" Relationship="Self.Usuarios_Permisos" FromRole="Permisos" ToRole="Usuarios" />
+    <Property Name="Controlador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Planes">
     <Key>
@@ -143,6 +145,7 @@
     <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__Usuari__403A8C7D" FromRole="Usuarios" ToRole="Clientes" />
     <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__RolID__3A81B327" FromRole="Usuarios" ToRole="Roles" />
     <NavigationProperty Name="Permisos" Relationship="Self.Usuarios_Permisos" FromRole="Usuarios" ToRole="Permisos" />
+    <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__Clientes__Usuari__403A8C7D">
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />

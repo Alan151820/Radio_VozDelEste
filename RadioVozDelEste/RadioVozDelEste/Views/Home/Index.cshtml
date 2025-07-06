@@ -1,33 +1,142 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<div class="container my-5">
+    <h2 class="text-center mb-4">Panel de Administración</h2>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <a href="/Programas/Create" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="plus-circle" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Crear Programa</h5>
+                        <p class="card-text">Agrega un nuevo programa.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/Programas/Index" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="trash-2" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Admnistrar Programas</h5>
+                        <p class="card-text">Mira, edita o elimina programas.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/Noticias/Create" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="user-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Crear Noticia</h5>
+                        <p class="card-text">Agrega un nuevo usuario con rol administrador.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/Noticias/MainPage" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="plus-square" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Administrar Noticia</h5>
+                        <p class="card-text">Mira, edita o elimina las noticias.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/Horarios/Create" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="user-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Crear Horario</h5>
+                        <p class="card-text">Agrega un nuevo usuario con rol administrador.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/Horarios/Index" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="calendar-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Administrar Horarios</h5>
+                        <p class="card-text">Mira, edita o elimina los horarios.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/Conductores/Create" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="user-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Crear Conductor</h5>
+                        <p class="card-text">Agrega un nuevo conductor.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/Conductores/Index" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="calendar-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Administrar Conductores</h5>
+                        <p class="card-text">Mira, edita o elimina conductores.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/Conductores/AsignarConductor" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="plus-square" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Asignar Conductores</h5>
+                        <p class="card-text" Asigna los conductores a nuestros programas">.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Crear Administrador -->
+        <div class="col-md-4">
+            <a href="/Usuarios/CrearAdmin" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="user-plus" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Crear Administrador</h5>
+                        <p class="card-text">Agrega un nuevo usuario con rol administrador.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Administrar Permisos -->
+        <div class="col-md-4">
+            <a href="/Usuarios/Index" class="text-decoration-none">
+                <div class="card text-center shadow-lg border-0 rounded-4 h-100">
+                    <div class="card-body py-4">
+                        <i data-lucide="shield-check" class="mb-3" style="width: 40px; height: 40px;"></i>
+                        <h5 class="card-title">Administrar Permisos</h5>
+                        <p class="card-text">Gestiona roles y niveles de acceso.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
-</main>
+</div>
+
+<script>
+    lucide.createIcons();
+</script>

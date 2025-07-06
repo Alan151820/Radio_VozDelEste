@@ -1,0 +1,94 @@
+﻿@model RadioVozDelEste.Models.Conductores
+
+@{
+    ViewBag.Title = "Eliminar Conductor";
+}
+
+<h3 class="text-danger">¿Estás seguro de que deseas eliminar este registro?</h3>
+
+<div class="detalle-horario">
+    <h4>Detalles del Conductor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Nombre)</dt>
+        <dd>@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd>@Html.DisplayFor(model => model.Descripcion)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+        </div>
+    }
+</div>
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+        color: #bbd50c;
+    }
+
+    .text-danger {
+        color: #c82333;
+        font-size: 1.1rem;
+    }
+
+    .detalle-horario {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #dee2e6;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .dl-horizontal dt {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .dl-horizontal dd {
+        margin-bottom: 10px;
+    }
+
+    .form-actions {
+        margin-top: 20px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        padding: 8px 16px;
+        color: white;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+    }
+
+        .btn-danger:hover {
+            background-color: #b02a37;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    .ms-2 {
+        margin-left: 0.5rem;
+    }
+</style>

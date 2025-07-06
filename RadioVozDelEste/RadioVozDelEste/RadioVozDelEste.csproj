@@ -161,9 +161,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClimaController.cs" />
+    <Compile Include="Controllers\ConductoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorariosController.cs" />
     <Compile Include="Controllers\NoticiasController.cs" />
+    <Compile Include="Controllers\ProgramasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="DataAccess\Connection\PConnection.cs" />
     <Compile Include="DataAccess\Repository\UsuarioRepository.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Models\Permisos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\PermisosController.cs" />
     <Compile Include="Models\Planes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -256,6 +259,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Usuarios\AvatarDefault.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -304,8 +308,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\SignUp.cshtml" />
     <Content Include="Views\Horarios\Create.cshtml" />
     <Content Include="Views\Horarios\Delete.cshtml" />
     <Content Include="Views\Horarios\Details.cshtml" />
@@ -324,9 +326,25 @@
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Noticias\PorCategoria.cshtml" />
     <Content Include="Views\Noticias\PorPrograma.cshtml" />
+    <Content Include="Views\Programas\Create.cshtml" />
+    <Content Include="Views\Programas\Delete.cshtml" />
+    <Content Include="Views\Programas\Details.cshtml" />
+    <Content Include="Views\Programas\Edit.cshtml" />
+    <Content Include="Views\Programas\Index.cshtml" />
+    <Content Include="Views\Conductores\Create.cshtml" />
+    <Content Include="Views\Conductores\Delete.cshtml" />
+    <Content Include="Views\Conductores\Edit.cshtml" />
+    <Content Include="Views\Conductores\Index.cshtml" />
+    <Content Include="Views\Conductores\AsignarConductor.cshtml" />
+    <Content Include="Views\Permisos\Delete.cshtml" />
+    <Content Include="Views\Permisos\Edit.cshtml" />
+    <Content Include="Views\Permisos\Index.cshtml" />
+    <Content Include="Views\Permisos\EditarPermisos.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Programas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

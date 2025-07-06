@@ -6,10 +6,6 @@
 @{
     var rol = Session["Rol"].ToString();
 }
-<div class="ImagenPrincipal">
-
-    <img src="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo400/9853646/9853646-1606986378050-d04a566dc65e3.jpg" class="ImagenUsuario" />
-</div>
 
 @foreach (var grupo in Model)
 {
@@ -47,7 +43,7 @@
                         @if (rol == "Administrador")
                         {
 
-                            @Html.ActionLink("Edit", "Edit", new { id = horario.HorarioID })
+                            @Html.ActionLink("Edit", "Edit", new { id = horario.HorarioID } ) <span>  | </span> 
                             @Html.ActionLink("Delete", "Delete", new { id = horario.HorarioID })
 
                         }
@@ -57,12 +53,6 @@
             }
         </table>
 
-    </div>
-}
-@if (rol == "Administrador")
-{
-    <div class="btn-container">
-        @Html.ActionLink("Crear nuevo", "Create", null, new { @class = "btnCrearHorario" })
     </div>
 }
 
@@ -93,19 +83,7 @@
     .container {
         margin-top: 0;
         padding: 0;
-    }
-
-    .ImagenPrincipal {
-        background-color: black;
-        height: 100%;
-    }
-
-        .ImagenPrincipal img {
-            width: 100px;
-            height: 100PX;
-            margin-left: 500px;
-        }
-
+    }S
     th, td {
         border-bottom: none;
     }

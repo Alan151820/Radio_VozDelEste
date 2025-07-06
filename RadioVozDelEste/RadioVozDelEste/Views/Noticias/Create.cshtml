@@ -6,10 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Noticias</h4>
         <hr />
@@ -23,37 +23,134 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Contenido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.FechaPublicacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaPublicacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.FechaPublicacion, new { @class = "form-control", type = "date" })
                 @Html.ValidationMessageFor(model => model.FechaPublicacion, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Imagen, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" name="Imagen" class="form-control" accept="image/*" />
                 @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @Html.LabelFor(model => model.CategoriaID, "Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.DropDownListFor(model => model.CategoriaID,
+         new SelectList(ViewBag.Categorias, "CategoriaID", "Nombre"),
+         "Seleccione una categoría",
+         new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProgramaID, "Programa", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProgramaID,
+                    new SelectList(ViewBag.Programas, "ProgramaID", "Nombre"),
+                    "Seleccione un programa",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProgramaID, "", new { @class = "text-danger" })
             </div>
+
+            <div class="Contenido">
+                @Html.LabelFor(model => model.Contenido, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Contenido, new { @class = "form-control", rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2, h4 {
+        color: #0d2c54;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .form-horizontal {
+        background: white;
+        padding: 30px;
+        margin: 40px auto;
+        max-width: 600px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .control-label {
+        font-weight: 600;
+        color: #2c3e50;
+        padding-top: 10px;
+    }
+
+    .form-control {
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        padding: 10px 14px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+
+    .form-group {
+        margin-bottom: 20px;
+        margin-left:100px;
+    }
+
+
+    .btn-default {
+        background-color: #0051ba;
+        color: white;
+        font-weight: 600;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-default:hover {
+            background-color: #003f94;
+        }
+
+    .text-danger {
+        font-size: 0.9rem;
+        margin-top: 4px;
+        display: block;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        background: #0051ba;
+        margin-bottom: 30px;
+    }
+
+    a {
+        margin-left: 20px;
+        font-weight: bold;
+        color: #0051ba;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>

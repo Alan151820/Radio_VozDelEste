@@ -69,6 +69,8 @@ namespace RadioVozDelEste.Controllers
         // GET: Noticias/Create
         public ActionResult Create()
         {
+            ViewBag.Categorias = db.Categorias.ToList();
+            ViewBag.Programas = db.Programas.ToList();
             return View();
         }
 
@@ -77,7 +79,7 @@ namespace RadioVozDelEste.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NoticiaID,Titulo,Contenido,FechaPublicacion,Imagen")] Noticias noticias)
+        public ActionResult Create([Bind(Include = "NoticiaID,Titulo,Contenido,FechaPublicacion,Imagen,CategoriaID,ProgramaID")] Noticias noticias)
         {
             if (ModelState.IsValid)
             {
@@ -85,6 +87,8 @@ namespace RadioVozDelEste.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Categorias = db.Categorias.ToList();
+            ViewBag.Programas = db.Programas.ToList();
 
             return View(noticias);
         }
@@ -143,7 +147,7 @@ namespace RadioVozDelEste.Controllers
             Noticias noticias = db.Noticias.Find(id);
             db.Noticias.Remove(noticias);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("MainPage","Noticias");
         }
 
         protected override void Dispose(bool disposing)
