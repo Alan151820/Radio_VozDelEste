@@ -49,18 +49,33 @@ namespace RadioVozDelEste.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre,Email,Contraseña")] Usuarios usuarios)
+        public ActionResult Create([Bind(Include = "Nombre,Email,Contraseña")] Usuarios usuarios, string CI,string apellido)
         {
             if (ModelState.IsValid)
             {
                 usuarios.RolID = 2;
                 db.Usuarios.Add(usuarios);
+
+                // Crear cliente con CI y vinculado al nuevo Usuario
+                Clientes cliente = new Clientes
+                {
+                    UsuarioID = usuarios.UsuarioID,
+                    CI = CI,
+                    Apellido = apellido,
+                    Nombre = usuarios.Nombre,
+                    Email = usuarios.Email
+                };
+
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
+                db.SaveChanges();
+
                 return RedirectToAction("Login", "Usuarios");
             }
 
             return View(usuarios);
         }
+
 
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
@@ -99,7 +114,7 @@ namespace RadioVozDelEste.Controllers
                 usuarioOriginal.Email = usuarios.Email;
                 usuarioOriginal.Contraseña = usuarios.Contraseña;
 
-    
+
                 if (ImagenPerfil != null && ImagenPerfil.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(ImagenPerfil.FileName);
@@ -170,13 +185,11 @@ namespace RadioVozDelEste.Controllers
 
             if (usuario != null)
             {
-                // Guardar datos del usuario en la sesión
                 Session["UserId"] = usuario.UsuarioID;
                 Session["UserName"] = usuario.Nombre;
                 Session["PhotoUrl"] = usuario.Imagen;
                 Session["Rol"] = usuario.Roles.Nombre.Trim();
 
-                // Guardar permisos en la sesión como lista de strings
                 var permisos = usuario.Permisos
                     .Select(p => p.Controlador + "." + p.Accion)
                     .ToList();
@@ -197,5 +210,89 @@ namespace RadioVozDelEste.Controllers
             Session.Clear();
             return RedirectToAction("Login");
         }
+        public ActionResult EditarPermisos(int id)
+        {
+            var usuario = db.Usuarios.Include(u => u.Permisos).FirstOrDefault(u => u.UsuarioID == id);
+            if (usuario == null)
+                return HttpNotFound();
+
+            var todosPermisos = db.Permisos.ToList();
+
+            ViewBag.TodosPermisos = todosPermisos;
+
+            return View(usuario);
+        }
+        [HttpPost]
+        public ActionResult EditarPermisos(int UsuarioID, int[] PermisosSeleccionados)
+        {
+            var usuario = db.Usuarios.Include(u => u.Permisos).FirstOrDefault(u => u.UsuarioID == UsuarioID);
+            if (usuario == null)
+                return HttpNotFound();
+
+            PermisosSeleccionados = PermisosSeleccionados ?? new int[0];
+
+            var permisosAEliminar = usuario.Permisos
+                .Where(p => !PermisosSeleccionados.Contains(p.PermisoID))
+                .ToList();
+
+            foreach (var permiso in permisosAEliminar)
+            {
+                usuario.Permisos.Remove(permiso);
+            }
+
+            foreach (var permisoId in PermisosSeleccionados)
+            {
+                if (!usuario.Permisos.Any(p => p.PermisoID == permisoId))
+                {
+                    var permiso = db.Permisos.Find(permisoId);
+                    if (permiso != null)
+                    {
+                        usuario.Permisos.Add(permiso);
+                    }
+                }
+            }
+
+            db.SaveChanges();
+            TempData["Mensaje"] = "Los permisos fueron actualizados correctamente.";
+            return RedirectToAction("Index", "Usuarios");
+        }
+        // GET
+        // GET: Mostrar formulario con dropdownlists
+        public ActionResult AsignarRol()
+        {
+            ViewBag.Usuarios = new SelectList(db.Usuarios.ToList(), "UsuarioID", "Nombre");
+            ViewBag.Roles = new SelectList(db.Roles.ToList(), "RolID", "Nombre");
+            return View();
+        }
+
+        // POST: Recibir selección y actualizar rol
+        [HttpPost]
+        public ActionResult AsignarRol(int UsuarioID, int RolID)
+        {
+            var usuario = db.Usuarios.Find(UsuarioID);
+            if (usuario == null)
+            {
+                ModelState.AddModelError("", "Usuario no encontrado.");
+            }
+            else
+            {
+                var rol = db.Roles.Find(RolID);
+                if (rol == null)
+                {
+                    ModelState.AddModelError("", "Rol no encontrado.");
+                }
+                else
+                {
+                    usuario.RolID = rol.RolID;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return View();
+        }
+
+
+
     }
 }

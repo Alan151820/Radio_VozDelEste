@@ -24,8 +24,9 @@
                         <td>@usuario.Email</td>
                         <td class="acciones">
                             @Html.ActionLink("Detalles", "Details", new { id = usuario.UsuarioID }) |
-                            @Html.ActionLink("Asignar Permisos", "EditarPermisos", "Permisos", new { id = usuario.UsuarioID }) |
+                            @Html.ActionLink("Asignar Permisos", "EditarPermisos", "Usuarios", new { id = usuario.UsuarioID }, null)|
                             @Html.ActionLink("Eliminar", "Delete", new { id = usuario.UsuarioID })
+
                         </td>
                     </tr>
                 }

@@ -1,42 +1,73 @@
 ﻿@model RadioVozDelEste.Models.Programas
 
 @{
-    ViewBag.Title = "Details";
+    Layout = null;
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles del Programa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+</head>
+<body>
+    <div class="card p-4">
+        <div class="card-header mb-3">
+            Detalles del Programa
+        </div>
+        <dl class="row">
+            <dt class="col-sm-4">Nombre</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(m => m.Nombre)</dd>
 
-<div>
-    <h4>Programas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+            <dt class="col-sm-4">Descripción</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(m => m.Descripcion)</dd>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+        <div class="btn-group mt-3">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ProgramaID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Volver al listado", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    body {
+        background-color: #f8f9fa;
+        padding: 2rem;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
+    .card {
+        max-width: 600px;
+        margin: 2rem auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+        border-radius: 0.5rem;
+        background: white;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Imagen)
-        </dd>
+    .card-header {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #0d6efd;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+    dt {
+        font-weight: 600;
+        color: #495057;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+    dd {
+        margin-bottom: 1rem;
+    }
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProgramaID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    .img-programa {
+        max-width: 200px;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-group a {
+        margin-right: 0.5rem;
+    }
+</style>

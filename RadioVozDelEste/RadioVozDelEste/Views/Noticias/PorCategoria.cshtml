@@ -2,6 +2,13 @@
 @{
     ViewBag.Title = "Noticias por Categoría";
 }
+@functions {
+    public bool TienePermisoDeAccesoA(string controlador, string accion)
+    {
+        var permisos = Session["Permisos"] as List<string>;
+        return permisos != null && permisos.Contains($"{controlador}.{accion}");
+    }
+}
 
 <h2 class="spanGeneral">@ViewBag.CategoriaSeleccionada.ToUpper()</h2>
 
@@ -10,7 +17,10 @@
     {
         <div class="divNoticia">
             <div class="ImagenContainer">
-                <img src="@item.Imagen" class="ImagenNoticia" alt="Imagen de la noticia">
+                <a href="/Noticias/Details/@item.NoticiaID">
+
+                    <img src="@Url.Content("~/" + item.Imagen)" class="ImagenNoticia" alt="Imagen de la noticia" />
+                </a>
                 @if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-2).Date)
                 {
                     <span class="EtiquetaActual"> ACTUAL</span>
@@ -21,13 +31,39 @@
                 }
             </div>
             <strong class="ProgramaNoticia">@item.Programas.Nombre.ToUpper()</strong> <br />
-            <h5 class="TituloNoticia">@item.Titulo</h5>
+            <a class="LinkNoticia" href="/Noticias/Details/@item.NoticiaID">
+
+                <h5 class="TituloNoticia">@item.Titulo</h5>
+            </a>
             <p class="card-text">
                 <small class="text-muted">Publicado el: @item.FechaPublicacion.ToShortDateString()</small>
             </p>
+
+            @{
+                var rol = Session["Rol"]?.ToString();
+            }
+
+            <div class="botones-noticia" style="margin-top:10px;">
+                @if (TienePermisoDeAccesoA("Noticias", "Edit") || rol == "Administrador" || rol == "Editor")
+                {
+                    <a href="@Url.Action("Edit", "Noticias", new { id = item.NoticiaID })" title="Editar" style="margin-right:8px;">
+                        <i data-lucide="edit-3" style="width:20px; height:20px; color:#0d6efd;"></i>
+                    </a>
+                }
+                @if (TienePermisoDeAccesoA("Noticias", "Delete") || rol == "Administrador" || rol == "Editor")
+                {
+                    <a href="@Url.Action("Delete", "Noticias", new { id = item.NoticiaID })" title="Eliminar">
+                        <i data-lucide="trash-2" style="width:20px; height:20px; color:#dc3545;"></i>
+                    </a>
+                }
+            </div>
         </div>
     }
+
+
 </div>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 <style>
     .spanGeneral {
         margin-top: 60px;
@@ -109,4 +145,10 @@
             text-decoration: underline;
             cursor: pointer;
         }
+
+    .LinkNoticia {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
 </style>

@@ -1,61 +1,94 @@
 ﻿@model RadioVozDelEste.Models.Noticias
 
 @{
-    ViewBag.Title = "Edit";
+    Layout = null;
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Noticias</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.NoticiaID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar Noticia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="card p-4">
+        <div class="card-header mb-3">
+            Editar Noticia
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contenido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @using (Html.BeginForm("Edit", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.NoticiaID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaPublicacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaPublicacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaPublicacion, "", new { @class = "text-danger" })
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Titulo, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control", placeholder = "Título de la noticia" })
+                @Html.ValidationMessageFor(m => m.Titulo, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Imagen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Contenido, new { @class = "form-label fw-bold" })
+                @Html.TextAreaFor(m => m.Contenido, 5, 50, new { @class = "form-control", placeholder = "Contenido de la noticia" })
+                @Html.ValidationMessageFor(m => m.Contenido, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="mb-3">
+                @Html.LabelFor(m => m.FechaPublicacion, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(m => m.FechaPublicacion, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(m => m.FechaPublicacion, "", new { @class = "text-danger" })
             </div>
-        </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Imagen, new { @class = "form-label fw-bold" })
+                <input type="file" name="Imagen" class="form-control" accept="image/*" />
+                @Html.ValidationMessageFor(m => m.Imagen, "", new { @class = "text-danger" })
+
+                @if (!string.IsNullOrEmpty(Model.Imagen))
+                {
+                    <p class="mt-2">Imagen actual:</p>
+                    <img src="@Url.Content("~/" + Model.Imagen)" alt="Imagen actual" style="max-width: 200px; border-radius: 0.5rem;" />
+                }
+            </div>
+
+            <div class="btn-group mt-3">
+                <button type="submit" class=" btn btnGuardar">Guardar</button>
+                @Html.ActionLink("Cancelar", "Noticias","MainPage", null, new { @class = "btn btn-secondary ms-2" })
+            </div>
+        }
     </div>
-}
+</body>
+</html>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<style>
+    body {
+        background-color: #f8f9fa;
+        padding: 2rem;
+    }
+
+    .card {
+        max-width: 700px;
+        margin: 2rem auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+        border-radius: 0.5rem;
+        background: white;
+    }
+
+    .card-header {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #0d6efd;
+    }
+
+    .form-label {
+        color: #495057;
+    }
+    .btnGuardar{
+        background-color:#a0a51c
+    }
+
+    .btnGuardar:hover {
+        background-color: #8d8605
+    }
+</style>

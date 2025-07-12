@@ -1,0 +1,142 @@
+﻿@model IEnumerable<RadioVozDelEste.Models.Comentarios>
+
+@{
+    ViewBag.Title = "Comentarios en vivo";
+    var cliente = ViewBag.ClienteActual as RadioVozDelEste.Models.Clientes;
+    var rol = Session["Rol"]?.ToString();
+    var logueado = Session["UserId"] != null;
+
+}
+
+<!-- PLAYER DE RADIO -->
+<div class="radio-player text-center">
+    <h2 id="radio-name">Radio Voz del Este - En Vivo</h2>
+    <audio controls autoplay id="radio">
+        <source id="radio-source" src="https://listen.wbor.org/" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <br />
+    <button onclick="toggleMute()" class="btn btn-secondary mt-2">Silenciar/Reactivar</button>
+</div>
+
+
+@if (rol != "Administrador" && rol != "Editor" && logueado)
+{
+
+    <div class="comentario-form mt-4">
+        <h3>Dejá tu comentario</h3>
+
+        @using (Html.BeginForm("Create", "Comentarios", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group mb-3">
+                @Html.Label("Cliente", htmlAttributes: new { @class = "form-label" })
+                <input type="text" class="form-control" value="@cliente.Nombre" readonly />
+                @Html.Hidden("ClienteID", cliente?.CI)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Programa", htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownList("ProgramaID", new SelectList(ViewBag.Programas, "ProgramaID", "Nombre"), "Selecciona un programa", new { @class = "form-control", required = "required" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.Label("Comentario", htmlAttributes: new { @class = "form-label" })
+                @Html.TextArea("Comentario", null, new { @class = "form-control", rows = 3, required = "required", placeholder = "Escribe tu comentario..." })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        }
+    </div>
+}
+else if (!logueado)
+{
+    <p>Para dejar un comentario debes <a href="@Url.Action("Login", "Usuarios")">iniciar sesión</a>.</p>
+}
+else 
+{
+    <p>Para dejar un comentario debes <a href="@Url.Action("Login", "Usuarios")">cambiar la sesion</a>.</p>
+}
+
+
+<!-- LISTA DE COMENTARIOS -->
+<div class="comentarios-lista mt-5">
+    <h3>Comentarios recientes</h3>
+    @if (Model.Any())
+    {
+        foreach (var c in Model.OrderByDescending(c => c.Fecha))
+        {
+            <div class="comentario-item border rounded p-2 mb-3">
+                <strong>@c.Clientes.Nombre</strong> en <em>@c.Programas.Nombre</em><br />
+                <small>@c.Fecha.ToString("dd/MM/yyyy HH:mm")</small>
+                <p>@c.Comentario</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No hay comentarios todavía.</p>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const radioName = "WBOR 91.1 FM";
+
+            $.getJSON(`https://fi1.api.radio-browser.info/json/stations/byname/${encodeURIComponent(radioName)}`, function (data) {
+                if (data.length > 0) {
+                    const station = data[0];
+                    $('#radio-name').text(station.name);
+                    $('#radio-source').attr('src', station.url_resolved);
+                    $('#radio')[0].load();
+                } else {
+                    $('#radio-name').text("No se encontró la radio");
+                }
+            }).fail(function () {
+                $('#radio-name').text("Error al cargar la radio");
+            });
+        });
+
+        function toggleMute() {
+            var audio = document.getElementById("radio");
+            audio.muted = !audio.muted;
+        }
+    </script>
+}
+
+<style>
+    .radio-player {
+        text-align: center;
+        margin: 2rem auto;
+    }
+
+    audio {
+        width: 300px;
+        margin-top: 1rem;
+    }
+
+    .comentario-form {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background: #f5f5f5;
+        border-radius: 10px;
+    }
+
+    .comentarios-lista {
+        max-width: 700px;
+        margin: 2rem auto;
+    }
+
+    .comentario-item {
+        padding: 1rem;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+</style>

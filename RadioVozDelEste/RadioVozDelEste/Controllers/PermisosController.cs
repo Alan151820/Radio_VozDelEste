@@ -119,10 +119,8 @@ namespace RadioVozDelEste.Models
             if (usuario == null)
                 return HttpNotFound();
 
-            // Si no se seleccionó nada, asignar lista vacía
             PermisosSeleccionados = PermisosSeleccionados ?? new int[0];
 
-            // Eliminar permisos que ya no están seleccionados
             var permisosAEliminar = usuario.Permisos
                 .Where(p => !PermisosSeleccionados.Contains(p.PermisoID))
                 .ToList();
@@ -132,7 +130,6 @@ namespace RadioVozDelEste.Models
                 usuario.Permisos.Remove(permiso);
             }
 
-            // Agregar nuevos permisos seleccionados
             foreach (var permisoId in PermisosSeleccionados)
             {
                 if (!usuario.Permisos.Any(p => p.PermisoID == permisoId))
