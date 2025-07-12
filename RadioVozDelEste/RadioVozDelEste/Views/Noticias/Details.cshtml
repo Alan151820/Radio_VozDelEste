@@ -4,47 +4,164 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Noticias</h4>
+<div class="containerDetalleNoticia">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
+    <h2 class="titulo">@Html.DisplayFor(model => model.Titulo)</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contenido)
-        </dt>
+    <div class="imagen-container">
+        <img src="@Url.Content("~/" + Model.Imagen)" alt="Imagen de noticia" class="image" />
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contenido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaPublicacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaPublicacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Imagen)
-        </dd>
+    <dl class="detalle-info">
+        <dd>@Html.DisplayFor(model => model.Contenido)</dd>
+        <dd>Publicado el: @Html.DisplayFor(model => model.FechaPublicacion)</dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NoticiaID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@if (ViewBag.NoticiasSimilares != null && ((List<RadioVozDelEste.Models.Noticias>)ViewBag.NoticiasSimilares).Any())
+{
+    <div class="noticias-similares">
+        <h3>Noticias Similares</h3>
+        <div class="similares-list">
+            @foreach (var item in (List<RadioVozDelEste.Models.Noticias>)ViewBag.NoticiasSimilares)
+            {
+                <div class="noticia-item">
+                    <a href="@Url.Action("Details", "Noticias", new { id = item.NoticiaID })">
+                        <div class="ImagenContainer">
+                            <img src="@Url.Content("~/" + item.Imagen)" class="ImagenNoticia" alt="Imagen de la noticia" />
+                            @if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-2).Date)
+                            {
+                                <span class="EtiquetaActual">ACTUAL</span>
+                            }
+                            else if (item.FechaPublicacion.Date >= DateTime.Now.AddDays(-7).Date)
+                            {
+                                <span class="EtiquetaActual">DESTACADO</span>
+                            }
+                        </div>
+                        <h5>@item.Titulo</h5>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+<style>
+    .containerDetalleNoticia {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+    }
+
+    .titulo {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 700;
+        color: #004080;
+    }
+
+    .imagen-container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .detalle-info dt {
+        font-weight: 600;
+        margin-top: 20px;
+        font-size: 1.1rem;
+        color: #007acc;
+    }
+
+    .detalle-info dd {
+        margin-left: 0;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .noticias-similares {
+        max-width: 900px;
+        margin: 50px auto 70px;
+        padding: 0 20px;
+    }
+
+        .noticias-similares h3 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: #004080;
+        }
+
+    .similares-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .noticia-item {
+        width: 200px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #fafafa;
+        transition: box-shadow 0.3s ease;
+    }
+
+        .noticia-item:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+    .ImagenContainer {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .ImagenNoticia {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .EtiquetaActual {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background-color: #ff5722;
+        color: white;
+        padding: 3px 8px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .noticia-item h5 {
+        font-size: 1rem;
+        margin: 10px;
+        color: #003366;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .noticia-item a {
+        text-decoration: none;
+    }
+</style>

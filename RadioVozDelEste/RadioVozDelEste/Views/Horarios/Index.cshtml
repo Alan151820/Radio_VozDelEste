@@ -2,9 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-}
-@{
-    var rol = Session["Rol"].ToString();
+    string rol = Session["Rol"]?.ToString();
 }
 
 @foreach (var grupo in Model)
@@ -14,45 +12,42 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="columnaHora">INCIO</th>
+                    <th class="columnaHora">INICIO</th>
                     <th class="columnaPrograma">PROGRAMA</th>
-                    <th></th>
+                    @if (rol == "Administrador")
+                    {
+                        <th></th>
+                    }
                 </tr>
             </thead>
-            @foreach (var horario in grupo)
-            {
-
-                <tr>
-                    <td class="HoraPrograma">@horario.HoraInicio </td>
-
-                    <td class="InfoPrograma">
-                        <span class="NombrePrograma"> @Html.ActionLink(horario.Programas.Nombre.ToUpper(), "Details", new { id = horario.HorarioID })</span>
-
-                        <div class="Conductores">
-
-                            <span class="spanConductores">Conductores :</span>
-
-                            @foreach (var conductor in horario.Programas.Conductores)
-                            {
-                                <span class="Chip">@conductor.Nombre </span>
-                            }
-                        </div>
-
-                    </td>
-                    <td class="edicion">
-                        @if (rol == "Administrador")
+            <tbody>
+                @foreach (var horario in grupo)
+                {
+                    <tr>
+                        <td class="HoraPrograma">@horario.HoraInicio</td>
+                        <td class="InfoPrograma">
+                            <span class="NombrePrograma">
+                                @Html.ActionLink(horario.Programas.Nombre.ToUpper(), "Details", new { id = horario.HorarioID })
+                            </span>
+                            <div class="Conductores">
+                                <span class="spanConductores">Conductores:</span>
+                                @foreach (var conductor in horario.Programas.Conductores)
+                                {
+                                    <span class="Chip">@conductor.Nombre</span>
+                                }
+                            </div>
+                        </td>
+                        @if (rol == "Administrador" || rol == "Editor")
                         {
-
-                            @Html.ActionLink("Edit", "Edit", new { id = horario.HorarioID } ) <span>  | </span> 
-                            @Html.ActionLink("Delete", "Delete", new { id = horario.HorarioID })
-
+                            <td class="edicion">
+                                @Html.ActionLink("Edit", "Edit", new { id = horario.HorarioID }) <span> | </span>
+                                @Html.ActionLink("Delete", "Delete", new { id = horario.HorarioID })
+                            </td>
                         }
-                    </td>
-
-                </tr>
-            }
+                    </tr>
+                }
+            </tbody>
         </table>
-
     </div>
 }
 
@@ -83,7 +78,9 @@
     .container {
         margin-top: 0;
         padding: 0;
-    }S
+    }
+
+    S
     th, td {
         border-bottom: none;
     }

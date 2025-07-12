@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Asignar Rol a Usuario";
+}
+
+<h2>Asignar Rol a Usuario</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="mensaje-exito">
+        @TempData["Mensaje"]
+    </div>
+}
+
+@using (Html.BeginForm("AsignarRol", "Usuarios", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="UsuarioID">Seleccionar Usuario:</label><br />
+        @Html.DropDownList("UsuarioID", (SelectList)ViewBag.Usuarios, "-- Selecciona un usuario --", new { required = "required", @class = "ddl" })
+    </div>
+
+    <div class="form-group">
+        <label for="RolID">Seleccionar Rol:</label><br />
+        @Html.DropDownList("RolID", (SelectList)ViewBag.Roles, "-- Selecciona un rol --", new { required = "required", @class = "ddl" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn-enviar">Asignar Rol</button>
+    </div>
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fafafa;
+        margin: 40px;
+        color: #333;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #0d6efd;
+        font-weight: 700;
+    }
+
+    .mensaje-exito {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+        color: #155724;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .form-group {
+        max-width: 400px;
+        margin: 0 auto 20px auto;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .ddl {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+    }
+
+        .ddl:focus {
+            outline: none;
+            border-color: #0d6efd;
+            box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+        }
+
+    .btn-enviar {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-enviar:hover {
+            background-color: #0849a8;
+        }
+</style>

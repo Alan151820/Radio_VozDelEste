@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -53,18 +54,24 @@ namespace RadioVozDelEste.Controllers
 
         // GET: Noticias/Details/5
         public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Noticias noticias = db.Noticias.Find(id);
-            if (noticias == null)
-            {
-                return HttpNotFound();
-            }
-            return View(noticias);
-        }
+{
+    if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+    var noticia = db.Noticias.Include(n => n.Programas).FirstOrDefault(n => n.NoticiaID == id);
+    if (noticia == null) return HttpNotFound();
+
+    // Obtener noticias similares: mismas categoría y distintas noticias
+    var similares = db.Noticias
+                      .Where(n => n.CategoriaID == noticia.CategoriaID && n.NoticiaID != noticia.NoticiaID)
+                      .OrderByDescending(n => n.FechaPublicacion)
+                      .Take(4)
+                      .ToList();
+
+    ViewBag.NoticiasSimilares = similares;
+
+    return View(noticia);
+}
+
 
         // GET: Noticias/Create
         public ActionResult Create()
@@ -77,21 +84,33 @@ namespace RadioVozDelEste.Controllers
         // POST: Noticias/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NoticiaID,Titulo,Contenido,FechaPublicacion,Imagen,CategoriaID,ProgramaID")] Noticias noticias)
+        
+      [HttpPost]
+[ValidateAntiForgeryToken]
+public ActionResult Create([Bind(Include = "NoticiaID,Titulo,Contenido,FechaPublicacion,CategoriaID,ProgramaID")] Noticias noticias, HttpPostedFileBase Imagen)
+{
+    if (ModelState.IsValid)
+    {
+        if (Imagen != null && Imagen.ContentLength > 0)
         {
-            if (ModelState.IsValid)
-            {
-                db.Noticias.Add(noticias);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.Categorias = db.Categorias.ToList();
-            ViewBag.Programas = db.Programas.ToList();
+                    var fileName = Path.GetFileName(Imagen.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Images/Noticias"), fileName);
+            Imagen.SaveAs(path);
 
-            return View(noticias);
+            noticias.Imagen = "Images/Noticias/" + fileName; // ✅ Ruta relativa para usar en la vista
         }
+
+        db.Noticias.Add(noticias);
+        db.SaveChanges();
+        return RedirectToAction("MainPage", "Noticias");
+    }
+
+    ViewBag.Categorias = db.Categorias.ToList();
+    ViewBag.Programas = db.Programas.ToList();
+
+    return View(noticias);
+}
+
 
         // GET: Noticias/Edit/5
         public ActionResult Edit(int? id)
@@ -113,16 +132,56 @@ namespace RadioVozDelEste.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NoticiaID,Titulo,Contenido,FechaPublicacion,Imagen")] Noticias noticias)
+        public ActionResult Edit(RadioVozDelEste.Models.Noticias noticia, HttpPostedFileBase Imagen)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Entry(noticias).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return View(noticia);
             }
-            return View(noticias);
+
+            var original = db.Noticias.Find(noticia.NoticiaID);
+            if (original == null)
+                return HttpNotFound();
+
+            if (Imagen != null && Imagen.ContentLength > 0)
+            {
+                // Eliminar imagen anterior si existe
+                if (!string.IsNullOrEmpty(original.Imagen))
+                {
+                    var oldPath = Server.MapPath("~/" + original.Imagen);
+                    if (System.IO.File.Exists(oldPath))
+                    {
+                        System.IO.File.Delete(oldPath);
+                    }
+                }
+
+                // Guardar nueva imagen
+                var fileName = Path.GetFileName(Imagen.FileName);
+                var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(fileName);
+                var ruta = Server.MapPath("~/Images/Noticias");
+
+                if (!Directory.Exists(ruta))
+                {
+                    Directory.CreateDirectory(ruta);
+                }
+
+                var path = Path.Combine(ruta, uniqueName);
+                Imagen.SaveAs(path);
+
+                original.Imagen = "Images/Noticias/" + uniqueName;
+            }
+
+            // Actualizar campos
+            original.Titulo = noticia.Titulo;
+            original.Contenido = noticia.Contenido;
+            original.FechaPublicacion = noticia.FechaPublicacion;
+
+            db.Entry(original).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("MainPage", "Noticias");
         }
+
 
         // GET: Noticias/Delete/5
         public ActionResult Delete(int? id)

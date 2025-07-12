@@ -148,8 +148,8 @@ namespace RadioVozDelEste.Controllers
                 programa.Conductores.Add(conductor);
                 db.SaveChanges();
             }
+            return RedirectToAction("Index", "Home");
 
-            return RedirectToAction("Index");
         }
 
     }

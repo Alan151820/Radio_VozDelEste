@@ -1,20 +1,84 @@
 ﻿@{
     ViewBag.Title = "Asignar Conductor a Programa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Asignar Conductor a Programa</h2>
+<h2 class="titulo">Asignar Conductor a Programa</h2>
 
 @using (Html.BeginForm("AsignarConductor", "Conductores", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.Label("Programa")
-        @Html.DropDownList("ProgramaID", (SelectList)ViewBag.Programas, "Selecciona un programa", new { @class = "form-control" })
-    </div>
+    <div class="formulario-contenedor">
+        <div class="form-grupo">
+            @Html.Label("Programa", htmlAttributes: new { @class = "etiqueta" })
+            @Html.DropDownList("ProgramaID", (SelectList)ViewBag.Programas, "Selecciona un programa", new { @class = "entrada" })
+        </div>
 
-    <div class="form-group">
-        @Html.Label("Conductor")
-        @Html.DropDownList("conductorId", (SelectList)ViewBag.Conductores, "Selecciona un conductor", new { @class = "form-control" })
-    </div>
+        <div class="form-grupo">
+            @Html.Label("Conductor", htmlAttributes: new { @class = "etiqueta" })
+            @Html.DropDownList("conductorId", (SelectList)ViewBag.Conductores, "Selecciona un conductor", new { @class = "entrada" })
+        </div>
 
-    <button type="submit" class="btn btn-primary">Asignar</button>
+        <button type="submit" class="boton">Asignar</button>
+    </div>
 }
+
+<style>
+    .titulo {
+        text-align: center;
+        margin-top: 30px;
+        color: #1a1a1a;
+        font-size: 28px;
+    }
+
+    .formulario-contenedor {
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .form-grupo {
+        margin-bottom: 20px;
+    }
+
+    .etiqueta {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .entrada {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+        .entrada:focus {
+            border-color: #007bff;
+        }
+
+    .boton {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        .boton:hover {
+            background-color: #0056b3;
+        }
+</style>
+

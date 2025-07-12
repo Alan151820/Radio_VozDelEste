@@ -4,143 +4,101 @@
     string photoUrl = Session["PhotoUrl"]?.ToString();
     string userName = Session["UserName"]?.ToString();
     string userId = Session["UserId"]?.ToString();
-
-
+    string rol = Session["Rol"]?.ToString() ?? "";
 }
-
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Radio Voz del Este</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
-    <nav id="navfix" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
         <div class="container">
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+            <a class="navbar-brand fw-bold" href="/">RADIO VOZ DEL ESTE</a>
+          
 
-                <ul class="navbar-nav flex-grow-1">
-                    @if (Session["Rol"] != null)
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <ul class="navbar-nav me-auto">
+                    @if (!string.IsNullOrEmpty(rol))
                     {
-                        string rol = Session["Rol"].ToString();
-
                         if (rol == "Administrador")
                         {
-                            <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Calendario", "Index", "Horarios", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Administrar", "Index", "Home", null, new { @class = "nav-link" })</li>
-
-                            <li class="nav-item">
-                                <form class="d-flex">
-                                    <select id="ddl" class="form-select form-select-sm" style="width: 150px;">
-                                        <option selected disabled hidden>Contenido</option>
-                                        @foreach (var prog in programas)
-                                        {
-                                            <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
-                                                @prog.Nombre
-                                            </option>
-                                        }
-                                    </select>
-                                </form>
-                            </li>
+                            <li class="nav-item">@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Calendario", "Index", "Horarios", null, new { @class = "nav-link" })</li>
+                            <form class="d-flex me-3">
+                                <select id="ddl" class="form-select form-select-sm" onchange="location = this.value;">
+                                    <option>Contenido</option>
+                                    @foreach (var prog in programas)
+                                    {
+                                        <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
+                                            @prog.Nombre
+                                        </option>
+                                    }
+                                </select>
+                            </form>
+                            <li><a href="~/Comentarios/Index" class="btnVivo">EN VIVO</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="@Url.Content(Session["PhotoUrl"]?.ToString() ?? "~/Images/Usuarios/AvatarDefault.png")" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" />
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="@Url.Content(photoUrl ?? "~/Images/Usuarios/AvatarDefault.png")" class="avatar-img" alt="Usuario" />
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li><h6 class="dropdown-header">@Session["UserName"]</h6></li>
-                                    <li><hr></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = Session["UserId"] })">Editar</a></li>
-                                    <li><hr></li>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><h6 class="dropdown-header">@userName</h6></li>
+                                    <li><hr /></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = userId })">Editar perfil</a></li>
+                                    <li><hr /></li>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Home", new { id = userId })">Administrar</a>
+                                    <li><hr /></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Logout", "Usuarios")">Cerrar sesión</a></li>
-
-
                                 </ul>
                             </li>
-
 
                         }
                         else if (rol == "Cliente")
                         {
-                            <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
-
-                            <li class="nav-item">
-                                <form class="d-flex">
-                                    <select id="ddl" class="form-select form-select-sm" style="width: 150px;">
-                                        <option selected disabled hidden>Contenido</option>
-                                        @foreach (var prog in programas)
-                                        {
-                                            <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
-                                                @prog.Nombre
-                                            </option>
-                                        }
-                                    </select>
-                                </form>
+                            <li class="nav-item">@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
+                            <form class="d-flex me-3">
+                                <select id="ddl" class="form-select form-select-sm" onchange="location = this.value;">
+                                    <option>Contenido</option>
+                                    @foreach (var prog in programas)
+                                    {
+                                        <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
+                                            @prog.Nombre
+                                        </option>
+                                    }
+                                </select>
+                            </form>
+                            <li>
+                                <a href="~/Comentarios/Index" class="btnVivo">EN VIVO</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="@Url.Content(Session["PhotoUrl"]?.ToString() ?? "~/Images/Usuarios/AvatarDefault.png")" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" />
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="@Url.Content(photoUrl ?? "~/Images/Usuarios/AvatarDefault.png")" class="avatar-img" alt="Usuario" />
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li><h6 class="dropdown-header">@Session["UserName"]</h6></li>
-                                    <li><hr></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = Session["UserId"] })">Editar</a></li>
-                                    <li><hr></li>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><h6 class="dropdown-header">@userName</h6></li>
+                                    <li><hr /></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = userId })">Editar perfil</a></li>
+                                    <li><hr /></li>
+
                                     <li><a class="dropdown-item" href="@Url.Action("Logout", "Usuarios")">Cerrar sesión</a></li>
-
-
                                 </ul>
                             </li>
+
                         }
                         else if (rol == "Editor")
                         {
-                            <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">
-                                <form class="d-flex">
-                                    <select id="ddl" class="form-select form-select-sm" style="width: 150px;">
-                                        <option selected disabled hidden>Contenido</option>
-                                        @foreach (var prog in programas)
-                                        {
-                                            <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
-                                                @prog.Nombre
-                                            </option>
-                                        }
-                                    </select>
-                                </form>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="@Url.Content(Session["PhotoUrl"]?.ToString() ?? "~/Images/Usuarios/AvatarDefault.png")" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" />
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li><h6 class="dropdown-header">@Session["UserName"]</h6></li>
-                                    <li><hr></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = Session["UserId"] })">Editar</a></li>
-                                    <li><hr></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Logout", "Usuarios")">Cerrar sesión</a></li>
-
-
-                                </ul>
-                            </li>
-                        }
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuarios", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">
-                            <form class="d-flex">
-                                <select id="ddl" class="form-select form-select-sm" style="width: 150px;">
+                            <li class="nav-item">@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
+                            <form class="d-flex me-3">
+                                <select id="ddl" class="form-select form-select-sm" onchange="location = this.value;">
                                     <option selected disabled hidden>Contenido</option>
                                     @foreach (var prog in programas)
                                     {
@@ -150,91 +108,168 @@
                                     }
                                 </select>
                             </form>
+                            <li class="nav-item">
+                                <a href="~/Comentarios/Index" class="btnVivo">EN VIVO</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="@Url.Content(photoUrl ?? "~/Images/Usuarios/AvatarDefault.png")" class="avatar-img" alt="Usuario" />
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><h6 class="dropdown-header">@userName</h6></li>
+                                    <li><hr /></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Usuarios", new { id = userId })">Editar perfil</a></li>
+                                    <li><hr /></li>
+
+                                    <li><a class="dropdown-item" href="@Url.Action("Logout", "Usuarios")">Cerrar sesión</a></li>
+                                </ul>
+                            </li>
+
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item">@Html.ActionLink("Noticias", "MainPage", "Noticias", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Programación", "Index", "Horarios", null, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Clima", "ClimaIndex", "Clima", null, new { @class = "nav-link" })</li>
+                        <form class="d-flex me-3">
+                            <select id="ddl" class="form-select form-select-sm" onchange="location = this.value;">
+                                <option>Contenido</option>
+                                @foreach (var prog in programas)
+                                {
+                                    <option value="@Url.Action("PorPrograma", "Noticias", new { programa = prog.Nombre })">
+                                        @prog.Nombre
+                                    </option>
+                                }
+                            </select>
+                        </form>
+                        <li>
+                            <a href="~/Comentarios/Index" class="btnVivo">EN VIVO</a>
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Iniciar Sesión", "Login", "Usuarios", null, new { @class = "nav-link" })
                         </li>
 
                     }
                 </ul>
-            </div>
-        </div>
+
     </nav>
 
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
+        <footer>&copy; @DateTime.Now.Year - Radio Voz del Este</footer>
     </div>
-
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("Scripts", required: false)
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
-
 <style>
 
-    #ddl {
-        border: none;
-        color: #b99c9c;
-        font-size: 15px;
-        width: 130px;
-        background-color: transparent;
-    }
-
-    .navbar-nav {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 0;
-        width: 100%;
-    }
-
-        /* Empuja el dropdown usuario a la derecha */
-        .navbar-nav > li.nav-item.dropdown {
-            margin-left: auto;
-        }
-
-        /* Imagen del usuario */
-        .navbar-nav img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-    .nav-select {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        appearance: none;
-    }
-
-        .nav-select option {
-            background-color: #252525;
-            color: white;
-            border: none;
-        }
-
-
-    /* Navbar fijo arriba */
-    #navfix {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 10;
-    }
-
     body {
-        padding-top: 70px;
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding-top: 70px; /* espacio para navbar fija */
+        background-color: #f4f6f9;
     }
+
+    nav.navbar {
+        background-color: #0d6efd !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        margin-right: 15px;
+    }
+
+        .navbar .nav-link:hover {
+            color: #dceeff !important;
+        }
+
+    .form-select {
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        height: 32px;
+        margin-top: 4px;
+        background-color: #0d6efd;
+        font-weight: 500;
+        color:white;
+        border:none;
+        font-size:16px;
+    }
+
+    .dropdown-menu {
+        font-size: 0.9rem;
+    }
+
+    .dropdown-header {
+        font-weight: bold;
+    }
+
+    .container.body-content {
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .avatar-img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+    }
+
+        .avatar-img:hover {
+            transform: scale(1.1);
+        }
+
+    select#ddl:focus {
+        border-color: #0dcaf0;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.25);
+    }
+
+    .nav-item form {
+        margin-left: 15px;
+    }
+
+
+    .btnVivo {
+        background-color: #0051ba;
+        color: white;
+        border: 2px solid #003f94;
+        margin-top: 4px;
+        margin-left: 80px;
+        padding: 5px 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-block;
+    }
+
+        .btnVivo:hover {
+            background-color: white;
+            color:#ffd800;
+            border-color: #0051ba;
+        }
 </style>

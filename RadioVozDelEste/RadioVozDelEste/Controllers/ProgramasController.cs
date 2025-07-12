@@ -110,7 +110,7 @@ namespace RadioVozDelEste.Controllers
 
                 var fileName = Path.GetFileName(Imagen.FileName);
                 var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(fileName);
-                var ruta = Server.MapPath("~/images/programas");
+                var ruta = Server.MapPath("~/Images/Programas");
 
                 if (!Directory.Exists(ruta))
                 {
@@ -120,7 +120,7 @@ namespace RadioVozDelEste.Controllers
                 var path = Path.Combine(ruta, uniqueName);
                 Imagen.SaveAs(path);
 
-                original.Imagen = "/images/programas/" + uniqueName;
+                original.Imagen = "/Images/Programas/" + uniqueName;
             }
 
             original.Nombre = programa.Nombre;
@@ -153,11 +153,38 @@ namespace RadioVozDelEste.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Programas programas = db.Programas.Find(id);
-            db.Programas.Remove(programas);
+            var programa = db.Programas.Find(id);
+            if (programa == null)
+                return HttpNotFound();
+
+            // Eliminar noticias relacionadas
+            var noticiasRelacionadas = db.Noticias.Where(x => x.ProgramaID == id).ToList();
+            if (noticiasRelacionadas.Any())
+            {
+                db.Noticias.RemoveRange(noticiasRelacionadas);
+            }
+            var horarios = db.Horarios.Where(x => x.ProgramaID == id).ToList();
+            if (horarios.Any())
+            {
+                db.Horarios.RemoveRange(horarios);
+            }
+          
+
+            // Eliminar relaciones con Conductores (si existen)
+            db.Entry(programa).Collection(x => x.Conductores).Load();
+            if (programa.Conductores.Any())
+            {
+                programa.Conductores.Clear();
+            }
+
+            // Eliminar el programa
+            db.Programas.Remove(programa);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

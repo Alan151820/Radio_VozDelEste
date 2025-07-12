@@ -11,23 +11,30 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="Registro">
-            @Html.LabelFor(m => m.Nombre, new { @class = "DatosRegistro" })
-            @Html.TextBoxFor(m => m.Nombre, new { placeholder = "Ingrese su nombre" })
+    <div class="Registro">
+        @Html.LabelFor(m => m.Nombre, new { @class = "DatosRegistro" })
+        @Html.TextBoxFor(m => m.Nombre, new { placeholder = "Ingrese su nombre" })
+        <label class="DatosRegistro">Apellido</label>
+        <input type="text" name="Apellido" placeholder="Ingrese su apellido" class="form-control" required />
 
-            @Html.LabelFor(m => m.Email, new { @class = "DatosRegistro" })
-            @Html.TextBoxFor(m => m.Email, new { placeholder = "Ingrese su correo", type = "email" })
+        <label class="DatosRegistro">Cédula</label>
+        <input type="text" name="CI" placeholder="Ingrese su cédula" class="form-control" required />
 
-            @Html.LabelFor(m => m.Contraseña, new { @class = "DatosRegistro" })
-            @Html.PasswordFor(m => m.Contraseña, new { placeholder = "Cree una contraseña" })
 
-            <div class="OptionRegister">
-                <label class="OptionLogin">¿Ya tienes cuenta?</label>
-                <a href="/Usuarios/Login">Iniciar Sesión</a>
-            </div>
 
-            <button type="submit">Registrarse</button>
+        @Html.LabelFor(m => m.Email, new { @class = "DatosRegistro" })
+        @Html.TextBoxFor(m => m.Email, new { placeholder = "Ingrese su correo", type = "email" })
+
+        @Html.LabelFor(m => m.Contraseña, new { @class = "DatosRegistro" })
+        @Html.PasswordFor(m => m.Contraseña, new { placeholder = "Cree una contraseña" })
+
+        <div class="OptionRegister">
+            <label class="OptionLogin">¿Ya tienes cuenta?</label>
+            <a href="/Usuarios/Login">Iniciar Sesión</a>
         </div>
+
+        <button type="submit">Registrarse</button>
+    </div>
     }
 </body>
 </html>

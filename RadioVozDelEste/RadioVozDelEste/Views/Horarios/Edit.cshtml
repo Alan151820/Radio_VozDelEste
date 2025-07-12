@@ -1,61 +1,89 @@
 ﻿@model RadioVozDelEste.Models.Horarios
 
 @{
-    ViewBag.Title = "Edit";
+    Layout = null;
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Horarios</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.HorarioID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProgramaID, "ProgramaID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ProgramaID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ProgramaID, "", new { @class = "text-danger" })
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar Horario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="card p-4">
+        <div class="card-header mb-3">
+            Editar Horario
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DiaID, "DiaID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("DiaID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DiaID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.HorarioID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HoraInicio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HoraInicio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HoraInicio, "", new { @class = "text-danger" })
+            <div class="mb-3">
+                @Html.LabelFor(m => m.ProgramaID, "Programa", new { @class = "form-label fw-bold" })
+                @Html.DropDownList("ProgramaID", null, "Selecciona un programa", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.ProgramaID, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HoraFin, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HoraFin, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HoraFin, "", new { @class = "text-danger" })
+            <div class="mb-3">
+                @Html.LabelFor(m => m.DiaID, "Día", new { @class = "form-label fw-bold" })
+                @Html.DropDownList("DiaID", null, "Selecciona un día", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.DiaID, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="mb-3">
+                @Html.LabelFor(m => m.HoraInicio, "Hora Inicio", new { @class = "form-label fw-bold" })
+                @Html.EditorFor(m => m.HoraInicio, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+                @Html.ValidationMessageFor(m => m.HoraInicio, "", new { @class = "text-danger" })
             </div>
-        </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.HoraFin, "Hora Fin", new { @class = "form-label fw-bold" })
+                @Html.EditorFor(m => m.HoraFin, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+                @Html.ValidationMessageFor(m => m.HoraFin, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="btn-group mt-3">
+                <button type="submit" class="btn btnGuardar">Guardar</button>
+                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+            </div>
+        }
     </div>
-}
+</body>
+</html>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<style>
+    body {
+        background-color: #f8f9fa;
+        padding: 2rem;
+    }
+
+    .card {
+        max-width: 600px;
+        margin: 2rem auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+        border-radius: 0.5rem;
+        background: white;
+    }
+
+    .card-header {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #0d6efd;
+    }
+
+    .form-label {
+        color: #495057;
+    }
+
+    .btnGuardar {
+        background-color: #a0a51c
+    }
+
+        .btnGuardar:hover {
+            background-color: #8d8605
+        }
+</style>
