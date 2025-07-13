@@ -54,6 +54,7 @@ namespace RadioVozDelEste.Controllers
             if (ModelState.IsValid)
             {
                 usuarios.RolID = 2;
+                usuarios.Imagen = "/Images/Usuarios/AvatarDefault1.png";
                 db.Usuarios.Add(usuarios);
 
                 // Crear cliente con CI y vinculado al nuevo Usuario
@@ -72,7 +73,6 @@ namespace RadioVozDelEste.Controllers
 
                 return RedirectToAction("Login", "Usuarios");
             }
-
             return View(usuarios);
         }
 
@@ -154,9 +154,16 @@ namespace RadioVozDelEste.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Usuarios usuarios = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuarios);
+            var cliente = db.Clientes.FirstOrDefault(c => c.UsuarioID == id);
+            if (cliente != null)
+                db.Clientes.Remove(cliente);
+
+            var usuario = db.Usuarios.Find(id);
+            if (usuario != null)
+                db.Usuarios.Remove(usuario);
+
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
