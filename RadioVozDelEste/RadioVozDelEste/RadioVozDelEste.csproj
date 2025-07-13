@@ -169,8 +169,6 @@
     <Compile Include="Controllers\PatrocinadoresController.cs" />
     <Compile Include="Controllers\ProgramasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
-    <Compile Include="DataAccess\Connection\PConnection.cs" />
-    <Compile Include="DataAccess\Repository\UsuarioRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,7 +259,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\Usuarios\AvatarDefault.png" />
+    <Content Include="Images\Usuarios\AvatarDefault1.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
